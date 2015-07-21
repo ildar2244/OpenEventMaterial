@@ -1,0 +1,22 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="margin">16dp</dimen>
+    <dimen name="margin_top">8dp</dimen>
+
+    <!-- Navigation Drawer -->
+    <dimen name="nav_drawer_width">272dp</dimen>
+    <dimen name="image_heigth">153dp</dimen>
+    <dimen name="nav_margin_top">24dp</dimen>
+
+    <!-- RecyclerView -->
+    <dimen name="item_height">88dp</dimen>
+    <dimen name="divider">1dp</dimen>
+    <dimen name="div_margin_right">16dp</dimen>
+    <dimen name="div_margin_left">16dp</dimen>
+
+    <!-- EventCardView -->
+    <dimen name="toolbar_image">192dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+</resources>
