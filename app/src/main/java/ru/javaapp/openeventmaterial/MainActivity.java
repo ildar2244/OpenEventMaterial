@@ -36,6 +36,8 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        setCity();
+
         drawerFragment = (FragmentDrawer)
                 getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
         drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
@@ -73,6 +75,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 cityId = position + 1;
+                onDrawerItemSelected(view, 0);
             }
         });
 
@@ -85,7 +88,6 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss(); // Отпускает диалоговое окно
-                //onDrawerItemSelected(0);
             }
         });
         builder.show();
@@ -185,5 +187,33 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         fragmentManager.beginTransaction()
                 .replace(R.id.fragment_main, fragment)
                 .commit();
+    }
+
+    @Override
+    public void onBackPressed() {
+        openQuitDialog();
+    }
+
+    // При нажатии назад
+    private void openQuitDialog() {
+        AlertDialog.Builder quitDialog = new AlertDialog.Builder(
+                MainActivity.this);
+        quitDialog.setTitle("Выход: Вы уверены?");
+
+        quitDialog.setPositiveButton("Да!", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+
+        quitDialog.setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        quitDialog.show();
     }
 }
