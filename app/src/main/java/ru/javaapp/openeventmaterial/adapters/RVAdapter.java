@@ -62,12 +62,6 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.EventViewHolder> {
         TextView txt_date;
         ImageView imageEvent;
 
-        int[] imageUsers = new int[] {R.drawable.ic_image01, R.drawable.ic_image02, R.drawable.ic_image03,
-                R.drawable.ic_image04, R.drawable.ic_image05, R.drawable.ic_image06,
-                R.drawable.ic_image07, R.drawable.ic_image08, R.drawable.ic_image09, R.drawable.ic_image10,
-                R.drawable.ic_image11, R.drawable.ic_image12, R.drawable.ic_image13, R.drawable.ic_image14,
-                R.drawable.ic_image15, R.drawable.ic_image16};
-
         public EventViewHolder(View itemView) {
             super(itemView);
 

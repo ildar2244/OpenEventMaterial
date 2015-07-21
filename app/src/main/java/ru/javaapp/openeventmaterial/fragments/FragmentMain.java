@@ -38,6 +38,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -101,11 +102,19 @@ public class FragmentMain extends Fragment {
                         String itemDate = eventsList.get(position).getDate();
                         String itemName = eventsList.get(position).getName();
                         String itemAbout = eventsList.get(position).getDescription();
+                        String itemLink = eventsList.get(position).getCoastLink();
+                        Bitmap itemImage = eventsList.get(position).getImage();
+
+                        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                        itemImage.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                        byte[] byteArray = stream.toByteArray();
 
                         Intent i1 = new Intent(getActivity(), CardViewEventActivity.class);
                         i1.putExtra("sName", itemName);
                         i1.putExtra("sAbout", itemAbout);
                         i1.putExtra("sDate", itemDate);
+                        i1.putExtra("sImage", byteArray);
+                        i1.putExtra("sLink", itemLink);
                         startActivity(i1);
                     }
                 })
