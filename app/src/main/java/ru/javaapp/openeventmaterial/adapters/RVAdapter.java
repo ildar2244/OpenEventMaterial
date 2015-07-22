@@ -47,7 +47,6 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.EventViewHolder> {
     public void onBindViewHolder(EventViewHolder eventViewHolder, int i) {
 
         eventViewHolder.txt_name.setText(allEvents.get(i).getName());
-        eventViewHolder.txt_date.setText(allEvents.get(i).getDate());
         eventViewHolder.imageEvent.setImageBitmap(allEvents.get(i).getImage());
     }
 
@@ -59,14 +58,12 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.EventViewHolder> {
     public class EventViewHolder extends RecyclerView.ViewHolder {
 
         TextView txt_name;
-        TextView txt_date;
         ImageView imageEvent;
 
         public EventViewHolder(View itemView) {
             super(itemView);
 
             txt_name = (TextView) itemView.findViewById(R.id.tv_title);
-            txt_date = (TextView) itemView.findViewById(R.id.tv_time);
             imageEvent = (ImageView) itemView.findViewById(R.id.iv_item);
         }
     }
