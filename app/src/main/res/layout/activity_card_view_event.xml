@@ -21,6 +21,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="@dimen/margin"
+        android:layout_marginRight="@dimen/margin"
         android:background="@color/white">
 
         <ScrollView
@@ -32,41 +35,59 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="24dp"
-                android:layout_marginLeft="@dimen/margin"
-                android:layout_marginRight="@dimen/margin"
                 android:background="@color/white">
 
-                <!-- Картинка, Заголовок -->
+                <!-- Заголовок -->
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content">
 
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_name"
+                        android:fontFamily="sans-serif-medium"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorTextPrimary"
+                        android:layout_marginLeft="@dimen/margin"
+                        android:gravity="fill" />
+
+                </LinearLayout>
+
+                <!-- Картинка, Дата -->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:maxHeight="@dimen/item_height"
+                    android:layout_marginTop="@dimen/margin">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/iv_event" />
+                        android:id="@+id/iv_event"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/tv_name"
-                        android:fontFamily="sans-serif"
-                        android:textSize="16sp"
-                        android:textColor="@color/colorTextPrimary"
+                        android:id="@+id/tv_date"
                         android:layout_marginLeft="@dimen/margin"
-                        android:gravity="fill_horizontal" />
+                        android:fontFamily="sans-serif-medium"
+                        android:textSize="14sp"
+                        android:textColor="@color/colorTextSecondary"
+                        android:gravity="fill_horizontal"/>
 
                 </LinearLayout>
 
+                <!-- Описание события подробнее -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/tv_about"
                     android:layout_marginTop="@dimen/margin_top"
-                    android:fontFamily="sans-serif"
-                    android:textSize="12sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textSize="14sp"
                     android:textColor="@color/colorTextSecondary"
                     android:gravity="fill_horizontal" />
 
@@ -87,7 +108,7 @@
                         android:id="@+id/tv_clock"
                         android:layout_marginLeft="@dimen/margin"
                         android:fontFamily="sans-serif"
-                        android:textSize="12sp"
+                        android:textSize="14sp"
                         android:textColor="@color/colorTextSecondary"/>
                 </LinearLayout>
 
@@ -108,7 +129,7 @@
                         android:id="@+id/tv_place"
                         android:layout_marginLeft="@dimen/margin"
                         android:fontFamily="sans-serif"
-                        android:textSize="12sp"
+                        android:textSize="14sp"
                         android:textColor="@color/colorTextSecondary"/>
                 </LinearLayout>
 
@@ -129,7 +150,7 @@
                         android:id="@+id/tv_admin"
                         android:layout_marginLeft="@dimen/margin"
                         android:fontFamily="sans-serif"
-                        android:textSize="12sp"
+                        android:textSize="14sp"
                         android:textColor="@color/colorTextSecondary"/>
                 </LinearLayout>
 

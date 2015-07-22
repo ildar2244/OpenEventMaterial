@@ -20,6 +20,7 @@ public class CardViewEventActivity extends ActionBarActivity {
 
     TextView tv_name;
     TextView tv_about;
+    TextView tv_date;
     TextView tv_clock;
     TextView tv_place;
     TextView tv_admin;
@@ -53,6 +54,7 @@ public class CardViewEventActivity extends ActionBarActivity {
 
         tv_name = (TextView) findViewById(R.id.tv_name);
         tv_about = (TextView) findViewById(R.id.tv_about);
+        tv_date = (TextView) findViewById(R.id.tv_date);
         tv_clock = (TextView) findViewById(R.id.tv_clock);
         tv_place = (TextView) findViewById(R.id.tv_place);
         tv_admin = (TextView) findViewById(R.id.tv_admin);
@@ -78,6 +80,7 @@ public class CardViewEventActivity extends ActionBarActivity {
         tv_name.setText(text1);
         tv_about.setText(text2);
         tv_clock.setText(text3);
+        tv_date.setText(text3);
         imageEvent.setImageBitmap(bmp);
 
         btnLink.setOnClickListener(new View.OnClickListener() {

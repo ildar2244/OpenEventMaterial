@@ -32,12 +32,14 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Устанавливаем Toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        setCity();
+        setCity(); // Выбираем город
 
+        // Создаем и устанавливаем фрагмент панели навигации NavigationDrawer
         drawerFragment = (FragmentDrawer)
                 getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
         drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
@@ -75,7 +77,6 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 cityId = position + 1;
-                onDrawerItemSelected(view, 0);
             }
         });
 
@@ -88,6 +89,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss(); // Отпускает диалоговое окно
+                displayView(0);
             }
         });
         builder.show();
@@ -100,85 +102,95 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         return cityAdapter;
     }
 
+    // Обработка нажатий на пункты панели навигации
     @Override
     public void onDrawerItemSelected(View view, int position) {
+        displayView(position);
+    }
+
+    // Метод для наполнения фрагмента в MainActivity при выборе категории
+    private void displayView(int position) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentMain fragment = null;
+        String category = getString(R.string.app_name);
         switch (position) {
             case 0:
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(-1);
+                category = getString(R.string.title_section1);
                 break;
             case 1:
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
+                category = getString(R.string.title_section2);
                 break;
             case 2:
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
+                category = getString(R.string.title_section3);
                 break;
             case 3:
-                //onSectionAttached(position + 1);
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
+                category = getString(R.string.title_section4);
                 break;
             case 4:
-                //onSectionAttached(position + 1);
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
+                category = getString(R.string.title_section5);
                 break;
             case 5:
-                //onSectionAttached(position + 1);
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
+                category = getString(R.string.title_section6);
                 break;
             case 6:
-                //onSectionAttached(position + 1);
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
+                category = getString(R.string.title_section7);
                 break;
             case 7:
-                //onSectionAttached(position + 1);
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
+                category = getString(R.string.title_section8);
                 break;
             case 8:
-                //onSectionAttached(position + 1);
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
+                category = getString(R.string.title_section9);
                 break;
             case 9:
-                //onSectionAttached(position + 1);
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
+                category = getString(R.string.title_section10);
                 break;
             case 10:
-                //onSectionAttached(position + 1);
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
+                category = getString(R.string.title_section11);
                 break;
             case 11:
-                //onSectionAttached(position + 1);
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
+                category = getString(R.string.title_section12);
                 break;
             case 12:
-                //onSectionAttached(position + 1);
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
+                category = getString(R.string.title_section13);
                 break;
             default:
                 break;
@@ -187,6 +199,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         fragmentManager.beginTransaction()
                 .replace(R.id.fragment_main, fragment)
                 .commit();
+        getSupportActionBar().setTitle(category);
     }
 
     @Override

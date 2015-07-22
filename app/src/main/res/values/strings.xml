@@ -29,6 +29,20 @@
 
     <!-- Toolbar -->
     <string name="add">Add</string>
+    <string name="title_section1">Все события</string>
+    <string name="title_section2">Активный отдых</string>
+    <string name="title_section3">Бизнес</string>
+    <string name="title_section4">Выставки</string>
+    <string name="title_section5">Детские</string>
+    <string name="title_section6">Концерты</string>
+    <string name="title_section7">Мастер-классы</string>
+    <string name="title_section8">Образование</string>
+    <string name="title_section9">Развлечения</string>
+    <string name="title_section10">Семинары</string>
+    <string name="title_section11">Спорт</string>
+    <string name="title_section12">Тренинги</string>
+    <string name="title_section13">Хобби</string>
+    <string name="subtitle_city1">Астрахань</string>
 
     <!-- NavigationDrawerFragment-->
     <string name="drawer_open">Open</string>
