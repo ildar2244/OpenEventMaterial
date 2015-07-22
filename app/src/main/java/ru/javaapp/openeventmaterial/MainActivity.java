@@ -2,9 +2,7 @@ package ru.javaapp.openeventmaterial;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -16,7 +14,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import ru.javaapp.openeventmaterial.activities.AddEventsActivity;
 import ru.javaapp.openeventmaterial.fragments.FragmentDrawer;
 import ru.javaapp.openeventmaterial.fragments.FragmentMain;
 
@@ -26,6 +23,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
     private FragmentDrawer drawerFragment;
     int cityId;
     ArrayAdapter<String> cityAdapter = null;
+    String cityName = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +75,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 cityId = position + 1;
+                cityName = getResources().getStringArray(R.array.cities)[cityId - 1];
             }
         });
 
@@ -90,6 +89,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss(); // Отпускает диалоговое окно
                 displayView(0);
+                getSupportActionBar().setSubtitle(cityName);
             }
         });
         builder.show();
@@ -118,79 +118,79 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(-1);
-                category = getString(R.string.title_section1);
+                category = getResources().getStringArray(R.array.nav_rv)[position];
                 break;
             case 1:
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
-                category = getString(R.string.title_section2);
+                category = getResources().getStringArray(R.array.nav_rv)[position];
                 break;
             case 2:
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
-                category = getString(R.string.title_section3);
+                category = getResources().getStringArray(R.array.nav_rv)[position];
                 break;
             case 3:
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
-                category = getString(R.string.title_section4);
+                category = getResources().getStringArray(R.array.nav_rv)[position];
                 break;
             case 4:
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
-                category = getString(R.string.title_section5);
+                category = getResources().getStringArray(R.array.nav_rv)[position];
                 break;
             case 5:
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
-                category = getString(R.string.title_section6);
+                category = getResources().getStringArray(R.array.nav_rv)[position];
                 break;
             case 6:
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
-                category = getString(R.string.title_section7);
+                category = getResources().getStringArray(R.array.nav_rv)[position];
                 break;
             case 7:
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
-                category = getString(R.string.title_section8);
+                category = getResources().getStringArray(R.array.nav_rv)[position];
                 break;
             case 8:
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
-                category = getString(R.string.title_section9);
+                category = getResources().getStringArray(R.array.nav_rv)[position];
                 break;
             case 9:
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
-                category = getString(R.string.title_section10);
+                category = getResources().getStringArray(R.array.nav_rv)[position];
                 break;
             case 10:
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
-                category = getString(R.string.title_section11);
+                category = getResources().getStringArray(R.array.nav_rv)[position];
                 break;
             case 11:
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
-                category = getString(R.string.title_section12);
+                category = getResources().getStringArray(R.array.nav_rv)[position];
                 break;
             case 12:
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
-                category = getString(R.string.title_section13);
+                category = getResources().getStringArray(R.array.nav_rv)[position];
                 break;
             default:
                 break;
