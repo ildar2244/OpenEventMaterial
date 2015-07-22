@@ -64,7 +64,7 @@ public class FragmentMain extends Fragment {
     private Events event; // для хранения события
     private List<Events> eventsList; // для хранения всех событий
 
-    Elements name, date, time, address, buy, desscr, img, organisator;
+    Elements name, date, address, buy, desscr, img, organisator;
     Bitmap image;
     InputStream inp = null;
     List<Bitmap> bitmapList;
@@ -327,12 +327,15 @@ public class FragmentMain extends Fragment {
     // запускается фоновый потток для получения данных из БД
     public class JsonReadDataFromMySql extends AsyncTask<String, Void, String> {
         ProgressDialog dialog = new ProgressDialog(getActivity());
-        final int CONN_WAIT_TIME = 8000;
-        final int CONN_DATA_WAIT_TIME = 7000;
+        final int CONN_WAIT_TIME = 10000;
+        final int CONN_DATA_WAIT_TIME = 9000;
 
         @Override
         protected void onPreExecute() {
+            dialog.setTitle("Загрузка мероприятий");
             dialog.setMessage("Пожалуйста, подождите...");
+            dialog.setIndeterminate(true);
+            dialog.setCancelable(false);
             dialog.show();
         }
 
@@ -422,7 +425,9 @@ public class FragmentMain extends Fragment {
 
                 eventsList.add(event); // Добавляем объект event в список
             }
-        } catch (JSONException e) {}
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
         try {
             for (int i = 0; i < name.size(); i++) {
@@ -441,7 +446,7 @@ public class FragmentMain extends Fragment {
             }
             bitmapList.clear();
         }
-        catch (Exception ee){}
+        catch (Exception ee){ee.printStackTrace();}
 
             adapter = new RVAdapter(getActivity(), eventsList);
             rv.setAdapter(adapter);
@@ -455,7 +460,6 @@ public class FragmentMain extends Fragment {
         bitmapList = new ArrayList<Bitmap>();
 
         try {
-            bitmapList.clear();
             doc = Jsoup.connect(url).get();
             name = doc.select("h2[class=b-unit__header_size_small b-event__header] > a[href]");
             date = doc.select("span[class=b-unit__text_size_small b-unit__text_color_black]:contains(2015)");
@@ -465,10 +469,12 @@ public class FragmentMain extends Fragment {
             buy = doc.select("h2[class=b-unit__header_size_small b-event__header] > a[href]");
             img = doc.select("div[class=b-event__pic] > img[src*=https]");
 
-            for(int i = 0; i < img.size(); i++){
-                imgSrc = img.get(i).attr("src");
-                inp = new java.net.URL(imgSrc).openStream();
-                bitmapList.add(BitmapFactory.decodeStream(inp));
+            if(bitmapList.isEmpty()){
+                for(int i = 0; i < img.size(); i++) {
+                    imgSrc = img.get(i).attr("src");
+                    inp = new java.net.URL(imgSrc).openStream();
+                    bitmapList.add(BitmapFactory.decodeStream(inp));
+                }
             }
         }
         catch (IOException e) {
