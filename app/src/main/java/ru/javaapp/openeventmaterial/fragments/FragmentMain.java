@@ -63,7 +63,7 @@ public class FragmentMain extends Fragment {
     private Events event; // для хранения события
     private List<Events> eventsList; // для хранения всех событий
 
-    Elements name, date, time, address, buy, desscr, img;
+    Elements name, date, time, address, buy, desscr, img, organisator;
     Bitmap image;
     InputStream inp = null;
     List<Bitmap> bitmapList;
@@ -100,10 +100,12 @@ public class FragmentMain extends Fragment {
 
                         Events itemEvent = eventsList.get(position);
                         String itemDate = eventsList.get(position).getDate();
+                        String itemAddress = eventsList.get(position).getAddress();
                         String itemName = eventsList.get(position).getName();
                         String itemAbout = eventsList.get(position).getDescription();
                         String itemLink = eventsList.get(position).getCoastLink();
                         Bitmap itemImage = eventsList.get(position).getImage();
+                        String itemOrganisator = eventsList.get(position).getOrganisator();
 
                         ByteArrayOutputStream stream = new ByteArrayOutputStream();
                         itemImage.compress(Bitmap.CompressFormat.PNG, 100, stream);
@@ -115,6 +117,8 @@ public class FragmentMain extends Fragment {
                         i1.putExtra("sDate", itemDate);
                         i1.putExtra("sImage", byteArray);
                         i1.putExtra("sLink", itemLink);
+                        i1.putExtra("sOrganisator", itemOrganisator);
+                        i1.putExtra("sAddress", itemAddress);
                         startActivity(i1);
                     }
                 })
@@ -429,7 +433,8 @@ public class FragmentMain extends Fragment {
                 event.setDescription(desscr.get(i).text());
                 event.setCoastLink(buy.get(i).attr("href"));
                 event.setImage(bitmapList.get(i));
-                event.setPlaceId(1);
+                event.setOrganisator(organisator.get(i).text());
+                //event.setPlaceId(1);
                 eventsList.add(event); // Добавляем объект event в список
             }
             bitmapList.clear();
@@ -453,8 +458,9 @@ public class FragmentMain extends Fragment {
             name = doc.select("h2[class=b-unit__header_size_small b-event__header] > a[href]");
             date = doc.select("span[class=b-unit__text_size_small b-unit__text_color_black]:contains(2015)");
             //time = doc.select("span[class=time]");
-            address = doc.select("span[class=b-unit__text_size_small b-unit__text_color_black]:not(:has(2015))");
-            desscr = doc.select("div[class=b-event] > div[class=b-event__info] > p[class = b-unit__text b-event__description]");
+            organisator = doc.select("span[class=b-unit__text_size_small b-unit__text_color_black] > a[href]");
+            address = doc.select("span[class=b-unit__text_size_small b-unit__text_color_black]:not(:contains(2015))");
+            desscr = doc.select("div[class=b-event__info] > p[class = b-unit__text b-event__description]:not(:contains(Зарегистрируйтесь и опубликуйте))");
             buy = doc.select("h2[class=b-unit__header_size_small b-event__header] > a[href]");
             img = doc.select("div[class=b-event__pic] > img[src*=https]");
 

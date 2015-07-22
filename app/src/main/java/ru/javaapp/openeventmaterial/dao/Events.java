@@ -22,6 +22,15 @@ public class Events {
     private String description;
     private String coastLink;
     private String address;
+    private String organisator;
+
+    public String getOrganisator() {
+        return organisator;
+    }
+
+    public void setOrganisator(String organisator) {
+        this.organisator = organisator;
+    }
 
     public Events() {}
 

@@ -29,6 +29,7 @@ public class CardViewEventActivity extends ActionBarActivity {
     ImageView icon_clock;
     ImageView icon_place;
     ImageView icon_admin;
+    String link;
 
     Button btnLink;
 
@@ -72,8 +73,10 @@ public class CardViewEventActivity extends ActionBarActivity {
         String text1 = i1.getStringExtra("sName");
         String text2 = i1.getStringExtra("sAbout");
         String text3 = i1.getStringExtra("sDate");
+        String text4 = i1.getStringExtra("sAddress");
         byte[] byteArray = getIntent().getByteArrayExtra("sImage");
-        final String link = i1.getStringExtra("sLink");
+        link = i1.getStringExtra("sLink");
+        String text5 = i1.getStringExtra("sOrganisator");
 
         Bitmap bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
 
@@ -82,6 +85,8 @@ public class CardViewEventActivity extends ActionBarActivity {
         tv_clock.setText(text3);
         tv_date.setText(text3);
         imageEvent.setImageBitmap(bmp);
+        tv_place.setText(text4);
+        tv_admin.setText(text5);
 
         btnLink.setOnClickListener(new View.OnClickListener() {
             @Override
