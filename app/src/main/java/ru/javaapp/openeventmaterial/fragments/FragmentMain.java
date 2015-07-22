@@ -1,8 +1,10 @@
 package ru.javaapp.openeventmaterial.fragments;
 
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -355,23 +357,28 @@ public class FragmentMain extends Fragment {
                 pairs.add(new BasicNameValuePair("cityId", Integer.toString(cityId)));
             }
 
-            try{
-                HttpParams httpParams = new BasicHttpParams();
-                HttpConnectionParams.setConnectionTimeout(httpParams, CONN_WAIT_TIME);
-                HttpConnectionParams.setSoTimeout(httpParams, CONN_DATA_WAIT_TIME);
+            if(isConnected(getActivity())) {
+                try {
+                    HttpParams httpParams = new BasicHttpParams();
+                    HttpConnectionParams.setConnectionTimeout(httpParams, CONN_WAIT_TIME);
+                    HttpConnectionParams.setSoTimeout(httpParams, CONN_DATA_WAIT_TIME);
 
-                DefaultHttpClient postClient = new DefaultHttpClient(httpParams);
+                    DefaultHttpClient postClient = new DefaultHttpClient(httpParams);
 
-                HttpClient httpclient = postClient;
-                HttpPost httppost = new HttpPost(url);
-                httppost.setEntity(new UrlEncodedFormEntity(pairs));
-                HttpResponse response = httpclient.execute(httppost);
-                jsonResult = inputStreamToString(
-                        response.getEntity().getContent()).toString();
-            } catch (ClientProtocolException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
+                    HttpClient httpclient = postClient;
+                    HttpPost httppost = new HttpPost(url);
+                    httppost.setEntity(new UrlEncodedFormEntity(pairs));
+                    HttpResponse response = httpclient.execute(httppost);
+                    jsonResult = inputStreamToString(
+                            response.getEntity().getContent()).toString();
+                } catch (ClientProtocolException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            else {
+                return "нет интернета";
             }
 
             return null;
@@ -395,7 +402,23 @@ public class FragmentMain extends Fragment {
         }
 
         protected void onPostExecute(String result) {
-            ListDrawer();
+            if(result == "нет интернета")
+            {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setCancelable(true);
+                builder.setTitle("Ошибка");
+                builder.setMessage("Нет соединения или слабый интернет.");
+                builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() { // Кнопка ОК
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss(); // Отпускает диалоговое окно
+                    }
+                });
+                builder.show();
+            }
+            else {
+                ListDrawer();
+            }
             dialog.dismiss();
         }
     }
@@ -448,10 +471,13 @@ public class FragmentMain extends Fragment {
         }
         catch (Exception ee){ee.printStackTrace();}
 
+        try {
             adapter = new RVAdapter(getActivity(), eventsList);
-            rv.setAdapter(adapter);
             LinearLayoutManager llm = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+            rv.setAdapter(adapter);
             rv.setLayoutManager(llm);
+        }
+        catch(Exception e){}
     }
 
     public void parse(String url){
