@@ -5,6 +5,7 @@
 
     <!-- Системные -->
     <string name="action_settings">Settings</string>
+    <string name="add_event">Добавить свое</string>
     <string name="city_change">Изменить город</string>
     <string-array name="cities">
         <item>Астрахань</item>

@@ -2,6 +2,7 @@ package ru.javaapp.openeventmaterial;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -14,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import ru.javaapp.openeventmaterial.activities.AddEventsActivity;
 import ru.javaapp.openeventmaterial.fragments.FragmentDrawer;
 import ru.javaapp.openeventmaterial.fragments.FragmentMain;
 
@@ -56,6 +58,11 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
+
+        if (id == R.id.add) {
+            Intent addActivity = new Intent(getApplicationContext(), AddEventsActivity.class);
+            startActivity(addActivity);
+        }
 
         if (id == R.id.city_change) {
             setCity();

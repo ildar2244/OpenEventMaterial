@@ -17,6 +17,5 @@
 
     <!-- EventCardView -->
     <dimen name="toolbar_image">192dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
     <dimen name="btn_height">48dp</dimen>
 </resources>

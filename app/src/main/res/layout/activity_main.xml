@@ -13,17 +13,10 @@
         tools:context=".MainActivity"
         android:fitsSystemWindows="true">
 
-        <LinearLayout
-            android:id="@+id/container_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <!-- устанавливаем Toolbar в MainActivity-->
-            <include
-                android:id="@+id/toolbar"
-                layout="@layout/toolbar"/>
-
-        </LinearLayout>
+        <!-- устанавливаем Toolbar в MainActivity-->
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"/>
 
         <!-- Устанавливаем FragmentMain -->
         <fragment
