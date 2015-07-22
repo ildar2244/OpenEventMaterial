@@ -32,9 +32,7 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/margin"
-                android:layout_marginRight="@dimen/margin">
+                android:layout_height="match_parent">
 
                 <!-- Заголовок -->
                 <TextView
@@ -46,7 +44,7 @@
                     android:textColor="@color/colorTextPrimary"
                     android:paddingTop="@dimen/tv_name_padding_top"
                     android:padding="@dimen/tv_name_padding_left"
-                    android:gravity="fill_horizontal" />
+                    android:gravity="center" />
 
                 <!-- Картинка, Дата -->
                 <LinearLayout
@@ -85,7 +83,7 @@
                     android:fontFamily="sans-serif"
                     android:textSize="20sp"
                     android:textColor="@color/colorTextSecondary"
-                    android:gravity="fill_horizontal" />
+                    android:gravity="fill" />
 
                 <!-- Поле даты и времени -->
                 <LinearLayout
