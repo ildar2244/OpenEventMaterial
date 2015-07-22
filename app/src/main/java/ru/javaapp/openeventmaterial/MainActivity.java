@@ -1,6 +1,6 @@
 package ru.javaapp.openeventmaterial;
 
-import android.app.AlertDialog;
+import android.support.v7.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.FragmentManager;
@@ -87,7 +87,8 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         });
 
         // Диалог выбора городов, внутри которого находится ListView
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        AlertDialog.Builder builder =
+                new AlertDialog.Builder(MainActivity.this, R.style.AlertDialogStyle);
         builder.setCancelable(false);
         builder.setTitle("Выберите город");
         builder.setView(lvCity);
@@ -99,6 +100,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
                 getSupportActionBar().setSubtitle(cityName);
             }
         });
+        builder.setNegativeButton(R.string.cancel, null);
         builder.show();
     }
 
