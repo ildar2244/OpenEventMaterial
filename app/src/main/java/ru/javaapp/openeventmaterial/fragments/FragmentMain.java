@@ -457,9 +457,8 @@ public class FragmentMain extends Fragment {
             doc = Jsoup.connect(url).get();
             name = doc.select("h2[class=b-unit__header_size_small b-event__header] > a[href]");
             date = doc.select("span[class=b-unit__text_size_small b-unit__text_color_black]:contains(2015)");
-            //time = doc.select("span[class=time]");
             organisator = doc.select("span[class=b-unit__text_size_small b-unit__text_color_black] > a[href]");
-            address = doc.select("span[class=b-unit__text_size_small b-unit__text_color_black]:not(:contains(2015))");
+            address = doc.select("span[class=b-unit__text_size_small b-unit__text_color_black]:not(:contains(2015)):not(:has(span a)):not(:contains(руб.))");
             desscr = doc.select("div[class=b-event__info] > p[class = b-unit__text b-event__description]:not(:contains(Зарегистрируйтесь и опубликуйте))");
             buy = doc.select("h2[class=b-unit__header_size_small b-event__header] > a[href]");
             img = doc.select("div[class=b-event__pic] > img[src*=https]");
