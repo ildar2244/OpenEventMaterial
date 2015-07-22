@@ -46,6 +46,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import ru.javaapp.openeventmaterial.DividerItemDecoration;
 import ru.javaapp.openeventmaterial.R;
 import ru.javaapp.openeventmaterial.RecyclerItemClickListener;
 import ru.javaapp.openeventmaterial.activities.CardViewEventActivity;
@@ -90,6 +91,7 @@ public class FragmentMain extends Fragment {
 
         View layout = inflater.inflate(R.layout.fragment_fragment_main, container, false);
         rv = (RecyclerView) layout.findViewById(R.id.rv_events);
+        rv.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
 
         new JsonReadDataFromMySql().execute();
 
