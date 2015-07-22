@@ -10,12 +10,47 @@
     <dimen name="nav_margin_top">48dp</dimen>
 
     <!-- RecyclerView -->
-    <dimen name="item_height">88dp</dimen>
-    <dimen name="divider">1dp</dimen>
-    <dimen name="div_margin_right">16dp</dimen>
-    <dimen name="div_margin_left">16dp</dimen>
+    <dimen name="item_height">72dp</dimen>
+    <dimen name="tv_padding_left">16dp</dimen>
+    <dimen name="tv_padding_right">16dp</dimen>
+    <dimen name="tv_padding_top">16dp</dimen>
+    <dimen name="tv_padding_bottom">16dp</dimen>
+    <dimen name="iv_padding_top">16dp</dimen>
+    <dimen name="iv_padding_bottom">16dp</dimen>
+    <dimen name="iv_padding_left">16dp</dimen>
+    <dimen name="iv_padding_right">16dp</dimen>
 
     <!-- EventCardView -->
     <dimen name="toolbar_image">192dp</dimen>
+    <dimen name="tv_name_padding_left">16dp</dimen>
+    <dimen name="tv_name_padding_right">16dp</dimen>
+    <dimen name="tv_name_padding_top">8dp</dimen>
+    <dimen name="tv_name_padding_bottom">16dp</dimen>
+    <dimen name="tv_date_padding">16dp</dimen>
+    <dimen name="iv_date_padding_left">16dp</dimen>
+
+    <dimen name="tv_about_padding">16dp</dimen>
+
+    <dimen name="ll_clock_height">48dp</dimen>
+    <dimen name="ll_clock_margin_top">16dp</dimen>
+    <dimen name="iv_clock_padding_left">16dp</dimen>
+    <dimen name="tv_clock_padding">8dp</dimen>
+    <dimen name="tv_clock_padding_left">16dp</dimen>
+    <dimen name="tv_clock_padding_right">16dp</dimen>
+
+    <dimen name="ll_address_height">48dp</dimen>
+    <dimen name="ll_address_margin_top">8dp</dimen>
+    <dimen name="iv_address_padding_left">16dp</dimen>
+    <dimen name="tv_address_padding">8dp</dimen>
+    <dimen name="tv_address_padding_left">16dp</dimen>
+    <dimen name="tv_address_padding_right">16dp</dimen>
+
+    <dimen name="ll_org_height">48dp</dimen>
+    <dimen name="ll_org_margin_top">8dp</dimen>
+    <dimen name="iv_org_padding_left">16dp</dimen>
+    <dimen name="tv_org_padding">8dp</dimen>
+    <dimen name="tv_org_padding_left">16dp</dimen>
+    <dimen name="tv_org_padding_right">16dp</dimen>
+
     <dimen name="btn_height">48dp</dimen>
 </resources>

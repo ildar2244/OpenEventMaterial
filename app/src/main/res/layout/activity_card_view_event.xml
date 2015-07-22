@@ -27,16 +27,14 @@
         <!-- Вьюха для скроллинга общего лейаута -->
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="@dimen/margin"
-                android:layout_marginRight="@dimen/margin"
-                android:background="@color/white">
+                android:layout_marginRight="@dimen/margin">
 
                 <!-- Заголовок -->
                 <TextView
@@ -44,43 +42,48 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/tv_name"
                     android:fontFamily="sans-serif-medium"
-                    android:textSize="20sp"
+                    android:textSize="24sp"
                     android:textColor="@color/colorTextPrimary"
-                    android:layout_marginLeft="@dimen/margin"
-                    android:gravity="fill|left" />
+                    android:paddingTop="@dimen/tv_name_padding_top"
+                    android:padding="@dimen/tv_name_padding_left"
+                    android:gravity="fill_horizontal" />
 
                 <!-- Картинка, Дата -->
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin">
+                    android:layout_height="@dimen/item_height">
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="@dimen/item_height"
-                        android:id="@+id/iv_event"/>
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/iv_date_padding_left"
+                        android:id="@+id/iv_event"
+                        android:layout_weight="0.3"
+                        android:layout_gravity="center_vertical" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/tv_date"
-                        android:layout_marginLeft="@dimen/margin"
+                        android:padding="@dimen/tv_date_padding"
                         android:fontFamily="sans-serif-medium"
-                        android:textSize="14sp"
+                        android:textSize="16sp"
                         android:textColor="@color/colorTextSecondary"
-                        android:gravity="fill_horizontal"/>
+                        android:gravity="center_vertical|fill_horizontal"
+                        android:layout_weight="0.7"
+                        android:layout_gravity="center_vertical" />
 
                 </LinearLayout>
 
                 <!-- Описание события подробнее -->
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/tv_about"
-                    android:layout_marginTop="@dimen/margin_top"
-                    android:fontFamily="sans-serif-medium"
-                    android:textSize="14sp"
+                    android:padding="@dimen/tv_about_padding"
+                    android:fontFamily="sans-serif"
+                    android:textSize="20sp"
                     android:textColor="@color/colorTextSecondary"
                     android:gravity="fill_horizontal" />
 
@@ -89,20 +92,26 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_top">
+                    android:layout_marginTop="@dimen/ll_clock_margin_top">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/icon_clock"/>
+                        android:paddingLeft="@dimen/iv_clock_padding_left"
+                        android:id="@+id/icon_clock"
+                        android:layout_gravity="center_vertical" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/tv_clock"
-                        android:layout_marginLeft="@dimen/margin"
-                        android:fontFamily="sans-serif"
+                        android:paddingTop="@dimen/tv_clock_padding"
+                        android:paddingBottom="@dimen/tv_clock_padding"
+                        android:paddingLeft="@dimen/tv_clock_padding_left"
+                        android:paddingRight="@dimen/tv_clock_padding_right"
+                        android:fontFamily="sans-serif-medium"
                         android:textSize="14sp"
-                        android:textColor="@color/colorTextSecondary"/>
+                        android:textColor="@color/colorTextSecondary"
+                        android:layout_gravity="center_vertical" />
                 </LinearLayout>
 
                 <!-- Поле города и адреса -->
@@ -110,20 +119,26 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_top">
+                    android:layout_marginTop="@dimen/ll_address_margin_top">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/icon_place"/>
+                        android:paddingLeft="@dimen/iv_address_padding_left"
+                        android:id="@+id/icon_place"
+                        android:layout_gravity="center_vertical" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/tv_place"
-                        android:layout_marginLeft="@dimen/margin"
+                        android:paddingTop="@dimen/tv_address_padding"
+                        android:paddingBottom="@dimen/tv_address_padding"
+                        android:paddingLeft="@dimen/tv_address_padding_left"
+                        android:paddingRight="@dimen/tv_address_padding_right"
                         android:fontFamily="sans-serif"
                         android:textSize="14sp"
-                        android:textColor="@color/colorTextSecondary"/>
+                        android:textColor="@color/colorTextSecondary"
+                        android:layout_gravity="center_vertical" />
                 </LinearLayout>
 
                 <!-- Поле организатора -->
@@ -131,20 +146,26 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_top">
+                    android:layout_marginTop="@dimen/ll_org_margin_top">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/icon_admin"/>
+                        android:paddingLeft="@dimen/iv_org_padding_left"
+                        android:id="@+id/icon_admin"
+                        android:layout_gravity="center_vertical" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/tv_admin"
-                        android:layout_marginLeft="@dimen/margin"
+                        android:paddingTop="@dimen/tv_org_padding"
+                        android:paddingBottom="@dimen/tv_org_padding"
+                        android:paddingLeft="@dimen/tv_org_padding_left"
+                        android:paddingRight="@dimen/tv_org_padding_right"
                         android:fontFamily="sans-serif"
                         android:textSize="14sp"
-                        android:textColor="@color/colorTextSecondary"/>
+                        android:textColor="@color/colorTextSecondary"
+                        android:layout_gravity="center_vertical" />
                 </LinearLayout>
 
                 <Button
