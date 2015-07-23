@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -456,6 +457,7 @@ public class FragmentMain extends Fragment {
                 event.setTime(jsonChildNode.optString("vremya"));
                 event.setDescription(jsonChildNode.optString("description"));
                 event.setAddress(jsonChildNode.optString("address"));
+                event.setImage(BitmapFactory.decodeResource(getResources(), R.drawable.ic_bitmap));
                 //event.setCoastId(Integer.parseInt(jsonChildNode.optString("coast")));
                 //event.setBlocked(Integer.parseInt(jsonChildNode.optString("blocked")));
 
