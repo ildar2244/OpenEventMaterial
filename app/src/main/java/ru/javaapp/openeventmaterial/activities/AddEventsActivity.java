@@ -16,17 +16,29 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.UUID;
 
 import ru.javaapp.openeventmaterial.R;
 
@@ -38,6 +50,7 @@ public class AddEventsActivity extends ActionBarActivity {
     int selectCategory = 0;
     int cityId = 0;
     Random r;
+    int code;
 
     ArrayAdapter<String> categoryAdapter = null;
     ArrayAdapter<String> cityAdapter = null;
@@ -53,7 +66,7 @@ public class AddEventsActivity extends ActionBarActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        // Метод для кнопки back в Toolbar
+        // РњРµС‚РѕРґ РґР»СЏ РєРЅРѕРїРєРё back РІ Toolbar
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,7 +141,7 @@ public class AddEventsActivity extends ActionBarActivity {
         finish();
     }
 
-    private class InsertData extends AsyncTask<String, Void, Boolean> {
+    private class InsertData extends AsyncTask<String, Void, String> {
         ProgressDialog dialog = new ProgressDialog(AddEventsActivity.this);
 
         @Override
@@ -138,48 +151,83 @@ public class AddEventsActivity extends ActionBarActivity {
         }
 
         @Override
-        protected Boolean doInBackground(String... urls) {
-            r = new Random();
+        protected String doInBackground(String... urls) {
+            InputStream is = null;
+            String result = null;
+
+            final int CONN_WAIT_TIME = 8000;
+            final int CONN_DATA_WAIT_TIME = 7000;
 
             for(String url : urls) {
                 try {
                     ArrayList<NameValuePair> pairs = new ArrayList<NameValuePair>();
-                    pairs.add(new BasicNameValuePair("id", Integer.toString(r.nextInt(1000))));
+                    pairs.add(new BasicNameValuePair("id", UUID.randomUUID().toString()));
                     pairs.add(new BasicNameValuePair("categoryId", Integer.toString(selectCategory)));
                     pairs.add(new BasicNameValuePair("placeId", Integer.toString(cityId)));
-                    pairs.add(new BasicNameValuePair("managerId", Integer.toString(r.nextInt(1000))));
+                    pairs.add(new BasicNameValuePair("managerId", UUID.randomUUID().toString()));
                     pairs.add(new BasicNameValuePair("name", et_title.getText().toString()));
-                    //pairs.add(new BasicNameValuePair("data", et_time.getText().toString()));
+                    //pairs.add(new BasicNameValuePair("data", tvInputDate.getText().toString()));
+                    //pairs.add(new BasicNameValuePair("vremya", tvInputTime.getText().toString()));
                     pairs.add(new BasicNameValuePair("description", et_about.getText().toString()));
+                    //pairs.add(new BasicNameValuePair("address", etInputAddress.getText().toString()));
                     pairs.add(new BasicNameValuePair("coast", "0"));
                     pairs.add(new BasicNameValuePair("blocked", "0"));
 
-                    HttpClient client = new DefaultHttpClient();
+                    HttpParams httpParams = new BasicHttpParams();
+                    HttpConnectionParams.setConnectionTimeout(httpParams, CONN_WAIT_TIME);
+                    HttpConnectionParams.setSoTimeout(httpParams, CONN_DATA_WAIT_TIME);
+
+                    DefaultHttpClient postClient = new DefaultHttpClient(httpParams);
+                    HttpClient client = postClient;
                     HttpPost post = new HttpPost(url);
                     post.setEntity(new UrlEncodedFormEntity(pairs, "UTF-8"));
                     HttpResponse responce = client.execute(post);
+                    HttpEntity entity = responce.getEntity();
+                    is = entity.getContent();
+
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"), 8);
+                    StringBuilder sb = new StringBuilder();
+                    String line = null;
+                    while ((line = reader.readLine()) != null)
+                    {
+                        sb.append(line + "\n");
+                    }
+                    result = sb.toString();
+                } catch (ClientProtocolException e) {
+                    e.printStackTrace();
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
                 } catch (IOException e) {
-                    Toast.makeText(AddEventsActivity.this, e.toString(), Toast.LENGTH_LONG).show();
-                    return  false;
+                    e.printStackTrace();
                 }
             }
-            return true;
+            return result;
         }
 
         @Override
-        protected void onPostExecute(Boolean result) {
-            if(result == true){
-                Toast.makeText(AddEventsActivity.this, "Данные сохранены", Toast.LENGTH_LONG).show();
+        protected void onPostExecute(String result) {
+            try {
+                JSONObject json_data = new JSONObject(result);
+                code=json_data.getInt("code");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
+            if(code==1)
+            {
+                Toast.makeText(getBaseContext(), "Событие успешно сохранено",
+                        Toast.LENGTH_SHORT).show();
             }
-            else{
-                Toast.makeText(AddEventsActivity.this, "Ошибка сохранения", Toast.LENGTH_LONG).show();
+            else
+            {
+                Toast.makeText(getBaseContext(), "Событие не сохранено, попробуйте еще раз",
+                        Toast.LENGTH_LONG).show();
             }
-            dialog.dismiss();
+
         }
     }
 
-    //Метод для заполнения списка с городами в адаптер
+    //РњРµС‚РѕРґ РґР»СЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ СЃРїРёСЃРєР° СЃ РіРѕСЂРѕРґР°РјРё РІ Р°РґР°РїС‚РµСЂ
     private ArrayAdapter fillCitySpinner(){
         String[] cities = getResources().getStringArray(R.array.cities);
         cityAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_single_choice, cities);
@@ -187,7 +235,7 @@ public class AddEventsActivity extends ActionBarActivity {
         return cityAdapter;
     }
 
-    //Метод для заполнения списка с категориями в адаптер
+    //РњРµС‚РѕРґ РґР»СЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ СЃРїРёСЃРєР° СЃ РєР°С‚РµРіРѕСЂРёСЏРјРё РІ Р°РґР°РїС‚РµСЂ
     private ArrayAdapter fillCategorySpinner(){
         String[] category = new String[12];
         for(int i = 1; i < getResources().getStringArray(R.array.nav_rv).length; i++){
