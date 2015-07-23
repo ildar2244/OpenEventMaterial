@@ -36,7 +36,7 @@
 
                 <!-- Заголовок -->
                 <TextView
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/tv_name"
                     android:fontFamily="sans-serif-medium"
@@ -49,7 +49,7 @@
                 <!-- Картинка, Дата -->
                 <LinearLayout
                     android:orientation="horizontal"
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="@dimen/item_height">
 
                     <ImageView
@@ -76,7 +76,7 @@
 
                 <!-- Описание события подробнее -->
                 <TextView
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/tv_about"
                     android:padding="@dimen/tv_about_padding"
@@ -133,7 +133,7 @@
                         android:paddingBottom="@dimen/tv_address_padding"
                         android:paddingLeft="@dimen/tv_address_padding_left"
                         android:paddingRight="@dimen/tv_address_padding_right"
-                        android:fontFamily="sans-serif"
+                        android:fontFamily="sans-serif-medium"
                         android:textSize="14sp"
                         android:textColor="@color/colorTextSecondary"
                         android:layout_gravity="center_vertical" />
@@ -160,7 +160,7 @@
                         android:paddingBottom="@dimen/tv_org_padding"
                         android:paddingLeft="@dimen/tv_org_padding_left"
                         android:paddingRight="@dimen/tv_org_padding_right"
-                        android:fontFamily="sans-serif"
+                        android:fontFamily="sans-serif-medium"
                         android:textSize="14sp"
                         android:textColor="@color/colorTextSecondary"
                         android:layout_gravity="center_vertical" />
