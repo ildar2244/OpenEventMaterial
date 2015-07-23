@@ -8,6 +8,7 @@
     <string name="add_event">Добавить свое</string>
     <string name="city_change">Изменить город</string>
     <string name="cancel">Отмена</string>
+    <string name="notFillFields">Заполнены не все обязательные данные</string>
     <string-array name="cities">
         <item>Астрахань</item>
         <item>Волгоград</item>
@@ -51,6 +52,16 @@
         <item>Хобби</item>
     </string-array>
 
+    <!-- AddCVEvent -->
+    <string name="tv_input">Заполнить все поля ниже:</string>
+    <string name="hint_city">Город</string>
+    <string name="hint_category">Категория</string>
+    <string name="hint_title">Заголовок</string>
+    <string name="hint_about">Описание</string>
+    <string name="hint_time">Время и дата</string>
+    <string name="hint_address">Адрес</string>
+    <string name="hint_org">Организатор</string>
+
     <!-- Events item -->
     <string name="date">Дата:</string>
     <string name="time">Время начала:</string>
@@ -60,6 +71,7 @@
     <string name="btn_yes">Точно иду</string>
     <string name="btn_maybe">Может пойду</string>
     <string name="btn_link">Получить билет</string>
+    <string name="btn_get">Отправить</string>
 
     <!-- Удалить: черновой контент -->
     <string-array name="rv_one">

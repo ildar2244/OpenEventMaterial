@@ -1,19 +1,149 @@
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ru.javaapp.openeventmaterial.activities.AddEventsActivity">
+    tools:context="ru.javaapp.openeventmaterial.activities.AddEventsActivity"
+    android:background="@color/white">
 
-    <!-- вставляем Toolbar в AddEventsActivity-->
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"/>
+    <LinearLayout
+        android:id="@+id/container_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_below="@+id/toolbar"
-        android:text="@string/hello_world"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <!-- устанавливаем Toolbar в AddEventsActivity-->
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"/>
 
-</RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/white">
+
+        <!-- Вьюха для скроллинга общего лейаута -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/et_height"
+                    android:text="@string/tv_input"
+                    android:fontFamily="sans-serif"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorTextPrimary"
+                    android:gravity="center" />
+
+                <!-- Город мероприятия добавить -->
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spn_height"
+                    android:layout_marginRight="@dimen/ll_spn_margin_right"
+                    android:id="@+id/spinner"
+                    android:layout_weight="1"
+                    android:spinnerMode="dropdown"/>
+                <!-- Категорию мероприятия добавить -->
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spn_height"
+                    android:layout_marginRight="@dimen/ll_spn_margin_right"
+                    android:id="@+id/spinner2"
+                    android:layout_weight="1"
+                    android:spinnerMode="dropdown"/>
+                <!-- Заголовок мероприятия добавить -->
+                <EditText
+                    android:id="@+id/et_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/et_height"
+                    android:layout_marginLeft="@dimen/et_margin_left"
+                    android:layout_marginRight="@dimen/et_margin_right"
+                    android:maxLength="30"
+                    android:fontFamily="sans-serif"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorTextSecondary"
+                    android:hint="@string/hint_title"/>
+                <!-- Описание мероприятия добавить -->
+                <EditText
+                    android:id="@+id/et_about"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/et_margin_left"
+                    android:layout_marginRight="@dimen/et_margin_right"
+                    android:inputType="textMultiLine"
+                    android:ems="10"
+                    android:maxLength="120"
+                    android:fontFamily="sans-serif"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorTextSecondary"
+                    android:hint="@string/hint_about"
+                    android:imeActionLabel="title"/>
+                <!-- Время и дату мероприятия добавить -->
+                <EditText
+                    android:id="@+id/et_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/et_height"
+                    android:layout_marginLeft="@dimen/et_margin_left"
+                    android:layout_marginRight="@dimen/et_margin_right"
+                    android:maxLength="20"
+                    android:fontFamily="sans-serif"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorTextSecondary"
+                    android:hint="@string/hint_time"/>
+                <!-- Адрес и мероприятия добавить -->
+                <EditText
+                    android:id="@+id/et_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/et_height"
+                    android:layout_marginLeft="@dimen/et_margin_left"
+                    android:layout_marginRight="@dimen/et_margin_right"
+                    android:maxLength="20"
+                    android:fontFamily="sans-serif"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorTextSecondary"
+                    android:hint="@string/hint_address"/>
+                <!-- Организатор мероприятия добавить -->
+                <EditText
+                    android:id="@+id/et_org"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/et_height"
+                    android:layout_marginLeft="@dimen/et_margin_left"
+                    android:layout_marginRight="@dimen/et_margin_right"
+                    android:maxLength="20"
+                    android:fontFamily="sans-serif"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorTextSecondary"
+                    android:hint="@string/hint_org" />
+                <!-- Кнопка для отправки данных -->
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="@dimen/btn_get_width"
+                    android:minHeight="@dimen/btn_height"
+                    android:layout_marginTop="@dimen/margin"
+                    android:layout_marginBottom="24dp"
+                    android:id="@+id/btn_get"
+                    android:text="@string/btn_get"
+                    android:fontFamily="sans-serif-medium"
+                    android:textSize="14sp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/white"
+                    android:background="@color/colorAccent"
+                    android:enabled="true"/>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>
