@@ -108,12 +108,25 @@ public class FragmentMain extends Fragment {
                         String itemName = eventsList.get(position).getName();
                         String itemAbout = eventsList.get(position).getDescription();
                         String itemLink = eventsList.get(position).getCoastLink();
-                        Bitmap itemImage = eventsList.get(position).getImage();
+                        Bitmap itemImage = null;
+                        byte[] byteArray = null;
+                        if(eventsList.get(position).getImage() == null)
+                        {
+                            itemImage = null;
+                        }
+                        else {
+                            itemImage = eventsList.get(position).getImage();
+                        }
                         String itemOrganisator = eventsList.get(position).getOrganisator();
 
-                        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                        itemImage.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                        byte[] byteArray = stream.toByteArray();
+                        try {
+                            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                            itemImage.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                            byteArray = stream.toByteArray();
+                        }
+                        catch (Exception e){
+                            e.printStackTrace();
+                        }
 
                         Intent i1 = new Intent(getActivity(), CardViewEventActivity.class);
                         i1.putExtra("sName", itemName);

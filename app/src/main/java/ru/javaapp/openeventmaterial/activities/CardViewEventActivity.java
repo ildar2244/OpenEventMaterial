@@ -32,6 +32,7 @@ public class CardViewEventActivity extends ActionBarActivity {
     String link;
 
     Button btnLink;
+    Bitmap bmp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +50,7 @@ public class CardViewEventActivity extends ActionBarActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                onBackPressed();
             }
         });
 
@@ -78,7 +79,12 @@ public class CardViewEventActivity extends ActionBarActivity {
         link = i1.getStringExtra("sLink");
         String text5 = i1.getStringExtra("sOrganisator");
 
-        Bitmap bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+        try {
+           bmp  = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
 
         tv_name.setText(text1);
         tv_about.setText(text2);
@@ -104,4 +110,9 @@ public class CardViewEventActivity extends ActionBarActivity {
         return true;
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }
