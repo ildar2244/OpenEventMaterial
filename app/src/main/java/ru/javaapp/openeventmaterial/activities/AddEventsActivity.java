@@ -166,10 +166,10 @@ public class AddEventsActivity extends ActionBarActivity {
                     pairs.add(new BasicNameValuePair("placeId", Integer.toString(cityId)));
                     pairs.add(new BasicNameValuePair("managerId", UUID.randomUUID().toString()));
                     pairs.add(new BasicNameValuePair("name", et_title.getText().toString()));
-                    //pairs.add(new BasicNameValuePair("data", tvInputDate.getText().toString()));
-                    //pairs.add(new BasicNameValuePair("vremya", tvInputTime.getText().toString()));
+                    pairs.add(new BasicNameValuePair("data", "suka"));
+                    pairs.add(new BasicNameValuePair("vremya", "tvar"));
                     pairs.add(new BasicNameValuePair("description", et_about.getText().toString()));
-                    //pairs.add(new BasicNameValuePair("address", etInputAddress.getText().toString()));
+                    pairs.add(new BasicNameValuePair("address", "gadina"));
                     pairs.add(new BasicNameValuePair("coast", "0"));
                     pairs.add(new BasicNameValuePair("blocked", "0"));
 
@@ -257,6 +257,11 @@ public class AddEventsActivity extends ActionBarActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        finish();
+        try {
+            finish();
+        }
+        catch (Exception e){
+
+        }
     }
 }
