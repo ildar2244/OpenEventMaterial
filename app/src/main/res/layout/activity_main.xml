@@ -37,6 +37,7 @@
         android:layout_marginRight="56dp"
         android:id="@+id/fragment_navigation_drawer"
         app:layout="@layout/fragment_navigation_drawer"
+        app:headerLayout="@layout/nav_drawer_header"
         android:name="ru.javaapp.openeventmaterial.fragments.FragmentDrawer"
         tools:layout="@layout/fragment_navigation_drawer" />
 
