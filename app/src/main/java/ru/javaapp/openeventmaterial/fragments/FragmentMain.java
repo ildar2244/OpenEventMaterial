@@ -172,7 +172,9 @@ public class FragmentMain extends Fragment {
         protected String doInBackground(String... params) {
 
             try {
+                Log.d("My", "Call class new ParseFromTimePad ");
                 parseFromTimePad = new ParseFromTimePad(cityId, positionCategory);
+                parseFromTimePad.parsing();
             }
             catch (Exception e){
                 e.printStackTrace();
@@ -192,7 +194,6 @@ public class FragmentMain extends Fragment {
 
             if(isConnected(getActivity())) {
                 try {
-                    parseFromTimePad.parsing();
                     HttpParams httpParams = new BasicHttpParams();
                     HttpConnectionParams.setConnectionTimeout(httpParams, CONN_WAIT_TIME);
                     HttpConnectionParams.setSoTimeout(httpParams, CONN_DATA_WAIT_TIME);
@@ -268,7 +269,6 @@ public class FragmentMain extends Fragment {
         JSONArray jsonMainNode = null;
         try {
             eventsList = new ArrayList<Events>();
-            Log.d("my", "Json: ListDrawer()");
             jsonResponse = new JSONObject(jsonResult);
             jsonMainNode = jsonResponse.optJSONArray("allEvents_info_by_category_and_city");
 
@@ -295,6 +295,7 @@ public class FragmentMain extends Fragment {
         }
 
         try {
+            Log.d("My", "Start Set parse data ");
             for (int i = 0; i < parseFromTimePad.getName().size(); i++) {
                 event = new Events();
                 // get the value from href attribute
@@ -307,15 +308,22 @@ public class FragmentMain extends Fragment {
                 event.setOrganisator(parseFromTimePad.getOrganisator().get(i).text());
                 eventsList.add(event); // Добавляем объект event в список
             }
+            Log.d("My", "Finish Set parse data ");
             parseFromTimePad.getBitmapList().clear();
+            Log.d("My", "BitmapList clear ");
         }
-        catch (Exception ee){ee.printStackTrace();}
+        catch (Exception ee){
+            Log.e("My", "Error Start Set parse data ", ee);
+            ee.printStackTrace();
+        }
 
         try {
+            Log.d("My", "Start filling adapter ");
             adapter = new RVAdapter(getActivity(), eventsList);
             LinearLayoutManager llm = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
             rv.setAdapter(adapter);
             rv.setLayoutManager(llm);
+            Log.d("My", "Finish filling adapter ");
         }
         catch(Exception e){}
     }

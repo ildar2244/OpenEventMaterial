@@ -2,6 +2,7 @@ package ru.javaapp.openeventmaterial.parserFromInternet;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -337,6 +338,7 @@ public class ParseFromTimePad {
             parse("https://my.timepad.ru/naberezhnye-chelny/categories/teatry/events?approved=true&date=&mode=&online=false&paid=true");
         }
         // Нижний Новгород и Категории
+        /*
         if (cityId == 9 && positionCategory == 0) {
             parse("https://my.timepad.ru/events?approved=true&date=&mode=&online=false&paid=true");
         }
@@ -370,6 +372,7 @@ public class ParseFromTimePad {
         if (cityId == 9 && positionCategory == 14) {
             parse("https://my.timepad.ru/nizhniy-novgorod/categories/teatry/events?approved=true&date=&mode=&online=false&paid=true");
         }
+        */
 
         // Новосибирск и Категории
         if (cityId == 10 && positionCategory == 0) {
@@ -549,20 +552,30 @@ public class ParseFromTimePad {
     }
 
     public void parse(String url) {
+        Log.d("My", "Start Parsing: URL: " + url );
         String imgSrc;
         bitmapList = new ArrayList<Bitmap>();
         InputStream inp;
+        Log.d("My", "BitmapList before: " + bitmapList.size());
 
         try {
             Document doc = Jsoup.connect(url).get();
             name = doc.select("h2[class=b-unit__header_size_small b-event__header] > a[href]");
+            Log.d("My", "Name: " + name.size());
             date = doc.select("span[class=b-unit__text_size_small b-unit__text_color_black]:contains(2015)");
+            Log.d("My", "Date: " + date.size());
             organisator = doc.select("span[class=b-unit__text_size_small b-unit__text_color_black] > a[href]");
+            Log.d("My", "Organisator: " + organisator.size());
             address = doc.select("span[class=b-unit__text_size_small b-unit__text_color_black]:not(:contains(2015)):not(:has(span a)):not(:contains(руб.))");
+            Log.d("My", "Address: " + address.size());
             desscr = doc.select("div[class=b-event__info] > p[class = b-unit__text b-event__description]:not(:contains(Зарегистрируйтесь и опубликуйте))");
+            Log.d("My", "Description: " + desscr.size());
             buy = doc.select("h2[class=b-unit__header_size_small b-event__header] > a[href]");
+            Log.d("My", "Buy: " + buy.size());
             img = doc.select("div[class=b-event__pic] > img[src*=https]");
+            Log.d("My", "Img: " + img.size());
 
+            /*
             if (bitmapList.isEmpty()) {
                 for (int i = 0; i < img.size(); i++) {
                     imgSrc = img.get(i).attr("src");
@@ -570,9 +583,14 @@ public class ParseFromTimePad {
                     bitmapList.add(BitmapFactory.decodeStream(inp));
                 }
             }
+            */
+            Log.d("My", "BitmapList after: " + bitmapList.size());
         } catch (IOException e) {
+            Log.e("My", "Error: ", e);
             e.printStackTrace();
         }
+
+        Log.d("My", "Finih parsing ");
     }
 
 }
