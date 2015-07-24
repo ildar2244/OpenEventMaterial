@@ -185,6 +185,7 @@ public class FragmentMain extends Fragment {
 
             if(isConnected(getActivity())) {
                 try {
+                    parseFromTimePad.parsing();
                     HttpParams httpParams = new BasicHttpParams();
                     HttpConnectionParams.setConnectionTimeout(httpParams, CONN_WAIT_TIME);
                     HttpConnectionParams.setSoTimeout(httpParams, CONN_DATA_WAIT_TIME);
