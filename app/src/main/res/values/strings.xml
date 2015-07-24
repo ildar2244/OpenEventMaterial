@@ -33,6 +33,7 @@
     <string name="add">Add</string>
 
     <!-- NavigationDrawerFragment-->
+    <string name="nav_title">Категории</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
     <string-array name="nav_rv">
