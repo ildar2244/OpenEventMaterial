@@ -34,6 +34,7 @@
         android:layout_width="@dimen/nav_drawer_width"
         android:layout_height="match_parent"
         android:layout_gravity="left|start"
+        android:layout_marginRight="56dp"
         android:id="@+id/fragment_navigation_drawer"
         app:layout="@layout/fragment_navigation_drawer"
         android:name="ru.javaapp.openeventmaterial.fragments.FragmentDrawer"
