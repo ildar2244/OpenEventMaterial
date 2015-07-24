@@ -6,6 +6,14 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColorPrimary">@color/colorTextPrimary</item>
         <item name="android:textColorSecondary">@color/colorTextSecondary</item>
+
         <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:alertDialogTheme">@style/MyAlertDialog</item>
+    </style>
+
+    <style name="MyAlertDialog" parent="android:Theme.Material.Light.Dialog.Alert">
+        <item name="android:colorAccent">@color/colorAccent</item>
+        <item name="android:colorPrimary">@color/colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
     </style>
 </resources>
