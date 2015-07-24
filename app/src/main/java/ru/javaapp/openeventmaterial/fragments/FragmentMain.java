@@ -1,7 +1,7 @@
 package ru.javaapp.openeventmaterial.fragments;
 
 
-import android.app.AlertDialog;
+import android.support.v7.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -158,6 +158,13 @@ public class FragmentMain extends Fragment {
             dialog.setMessage("Пожалуйста, подождите...");
             dialog.setIndeterminate(true);
             dialog.setCancelable(false);
+            dialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Отмена", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    cancel(true);
+                    dialog.dismiss();
+                }
+            });
             dialog.show();
         }
 
