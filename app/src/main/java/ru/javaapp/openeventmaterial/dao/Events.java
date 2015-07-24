@@ -10,7 +10,7 @@ public class Events {
     private int id;
     private int categoryId;
     private int coastId;
-    private int managerId;
+    private String managerId;
     private int placeId;
     private int blocked;
 
@@ -131,11 +131,11 @@ public class Events {
         this.placeId = placeId;
     }
 
-    public int getManagerId() {
+    public String getManagerId() {
         return managerId;
     }
 
-    public void setManagerId(int managerId) {
+    public void setManagerId(String managerId) {
         this.managerId = managerId;
     }
 

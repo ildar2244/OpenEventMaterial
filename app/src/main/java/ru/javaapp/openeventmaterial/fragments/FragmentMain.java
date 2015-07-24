@@ -275,12 +275,11 @@ public class FragmentMain extends Fragment {
                 event = new Events();
                 JSONObject jsonChildNode = jsonMainNode.getJSONObject(i);
                 //event.setid(Integer.parseInt(jsonChildNode.optString("id")));
-                //event.setCategoryId(Integer.parseInt(jsonChildNode.optString("categoryId")));
+                event.setCategoryId(Integer.parseInt(jsonChildNode.optString("categoryId")));
                 event.setPlaceId(Integer.parseInt(jsonChildNode.optString("placeId")));
-                //event.setManagerId(Integer.parseInt(jsonChildNode.optString("managerId")));
+                event.setOrganisator(jsonChildNode.optString("managerId"));
                 event.setName(jsonChildNode.optString("name"));
-                event.setDate(jsonChildNode.optString("data"));
-                event.setTime(jsonChildNode.optString("vremya"));
+                event.setDate(jsonChildNode.optString("time"));
                 event.setDescription(jsonChildNode.optString("description"));
                 event.setAddress(jsonChildNode.optString("address"));
                 event.setImage(BitmapFactory.decodeResource(getResources(), R.drawable.ic_bitmap));

@@ -82,6 +82,9 @@ public class AddEventsActivity extends ActionBarActivity {
 
         et_title = (EditText) findViewById(R.id.et_title);
         et_about = (EditText) findViewById(R.id.et_about);
+        et_time = (EditText) findViewById(R.id.et_time);
+        et_address = (EditText) findViewById(R.id.et_address);
+        et_org = (EditText) findViewById(R.id.et_org);
 
         s1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -124,9 +127,10 @@ public class AddEventsActivity extends ActionBarActivity {
     boolean checkFillAllFields(){
         if(
                 et_title.getText().toString().trim().length() == 0 ||
-                et_about.getText().toString().trim().length() == 0)
-                //et_time.getText().toString().trim().length() == 0 ||
-                //et_address.getText().toString().trim().length() == 0)
+                et_about.getText().toString().trim().length() == 0 ||
+                et_time.getText().toString().trim().length() == 0 ||
+                et_address.getText().toString().trim().length() == 0 ||
+                et_org.getText().toString().trim().length() == 0)
         {
             return false;
         }
@@ -164,12 +168,11 @@ public class AddEventsActivity extends ActionBarActivity {
                     pairs.add(new BasicNameValuePair("id", UUID.randomUUID().toString()));
                     pairs.add(new BasicNameValuePair("categoryId", Integer.toString(selectCategory)));
                     pairs.add(new BasicNameValuePair("placeId", Integer.toString(cityId)));
-                    pairs.add(new BasicNameValuePair("managerId", UUID.randomUUID().toString()));
+                    pairs.add(new BasicNameValuePair("managerId", et_org.getText().toString()));
                     pairs.add(new BasicNameValuePair("name", et_title.getText().toString()));
-                    pairs.add(new BasicNameValuePair("data", "There Date"));
-                    pairs.add(new BasicNameValuePair("vremya", "There Time"));
+                    pairs.add(new BasicNameValuePair("time", et_time.getText().toString()));
                     pairs.add(new BasicNameValuePair("description", et_about.getText().toString()));
-                    pairs.add(new BasicNameValuePair("address", "There Address"));
+                    pairs.add(new BasicNameValuePair("address", et_address.getText().toString()));
                     pairs.add(new BasicNameValuePair("coast", "0"));
                     pairs.add(new BasicNameValuePair("blocked", "0"));
 
