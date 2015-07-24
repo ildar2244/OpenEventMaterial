@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import ru.javaapp.openeventmaterial.DividerItemDecoration;
 import ru.javaapp.openeventmaterial.NavDrawerItem;
 import ru.javaapp.openeventmaterial.R;
 import ru.javaapp.openeventmaterial.adapters.NavigationDrawerAdapter;
@@ -77,6 +78,7 @@ public class FragmentDrawer extends Fragment {
         adapter = new NavigationDrawerAdapter(getActivity(), getData());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
 
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListener() {
             @Override

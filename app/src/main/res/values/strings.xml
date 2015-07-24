@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">OpenEvent</string>
-
     <string name="hello_world">Hello world!</string>
 
     <!-- Системные -->
@@ -28,7 +27,7 @@
 
     <!-- Activity -->
     <string name="title_activity_event">Подробно</string>
-    <string name="title_activity_add_events">AddEventsActivity</string>
+    <string name="title_activity_add_events">Добавить событие</string>
 
     <!-- Toolbar -->
     <string name="add">Add</string>
