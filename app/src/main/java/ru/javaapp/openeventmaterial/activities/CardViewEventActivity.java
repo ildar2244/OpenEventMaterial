@@ -26,7 +26,7 @@ public class CardViewEventActivity extends ActionBarActivity {
     TextView tv_place;
     TextView tv_admin;
 
-    ImageView imageEvent;
+    ImageView imageCity;
     ImageView icon_clock;
     ImageView icon_place;
     ImageView icon_admin;
@@ -58,13 +58,13 @@ public class CardViewEventActivity extends ActionBarActivity {
         tv_name = (TextView) findViewById(R.id.tv_name);
         tv_about = (TextView) findViewById(R.id.tv_about);
         tv_date = (TextView) findViewById(R.id.tv_date);
-        tv_clock = (TextView) findViewById(R.id.tv_clock);
+        //tv_clock = (TextView) findViewById(R.id.tv_clock);
         tv_place = (TextView) findViewById(R.id.tv_place);
         tv_admin = (TextView) findViewById(R.id.tv_admin);
 
-        //imageEvent = (ImageView) findViewById(R.id.iv_event);
-        icon_clock = (ImageView) findViewById(R.id.icon_clock);
-        icon_clock.setImageResource(R.drawable.ic_access_time_black_24dp);
+        imageCity = (ImageView) findViewById(R.id.iv_city);
+        //icon_clock = (ImageView) findViewById(R.id.icon_clock);
+        //icon_clock.setImageResource(R.drawable.ic_access_time_black_24dp);
         icon_place = (ImageView) findViewById(R.id.icon_place);
         icon_place.setImageResource(R.drawable.ic_place_black_24dp);
         icon_admin = (ImageView) findViewById(R.id.icon_admin);
@@ -89,9 +89,9 @@ public class CardViewEventActivity extends ActionBarActivity {
 
         tv_name.setText(text1);
         tv_about.setText(text2);
-        tv_clock.setText(text3);
+        //tv_clock.setText(text3);
         tv_date.setText(text3);
-        //imageEvent.setImageBitmap(bmp);
+        imageCity.setImageBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.img_nch_03));
         tv_place.setText(text4);
         tv_admin.setText(text5);
 
