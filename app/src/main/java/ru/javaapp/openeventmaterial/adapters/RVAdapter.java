@@ -46,8 +46,8 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.EventViewHolder> {
     @Override
     public void onBindViewHolder(EventViewHolder eventViewHolder, int i) {
 
-        eventViewHolder.txt_name.setText(allEvents.get(i).getName());
-        eventViewHolder.imageEvent.setImageBitmap(allEvents.get(i).getImage());
+        eventViewHolder.tvName.setText(allEvents.get(i).getName());
+        eventViewHolder.imgNext.setImageBitmap(allEvents.get(i).getImage());
     }
 
     @Override
@@ -57,14 +57,19 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.EventViewHolder> {
 
     public class EventViewHolder extends RecyclerView.ViewHolder {
 
-        TextView txt_name;
-        ImageView imageEvent;
+        TextView tvName;
+        ImageView imgNext;
+        int[] img = new int[] {R.drawable.ic_next_blue, R.drawable.ic_next_green,
+                R.drawable.ic_next_grey, R.drawable.ic_next_blue2, R.drawable.ic_next_pink,
+                R.drawable.ic_next_yellow, R.drawable.ic_next_red, R.drawable.ic_next_purple};
+        int imageId = (int)(Math.random() * img.length);
 
         public EventViewHolder(View itemView) {
             super(itemView);
 
-            txt_name = (TextView) itemView.findViewById(R.id.tv_title);
-            imageEvent = (ImageView) itemView.findViewById(R.id.iv_item);
+            tvName = (TextView) itemView.findViewById(R.id.tv_title);
+            imgNext = (ImageView) itemView.findViewById(R.id.iv_item);
+            imgNext.setBackgroundResource(img[imageId]);
         }
     }
 }

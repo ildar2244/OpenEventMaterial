@@ -22,7 +22,6 @@ public class CardViewEventActivity extends ActionBarActivity {
     TextView tv_name;
     TextView tv_about;
     TextView tv_date;
-    TextView tv_clock;
     TextView tv_place;
     TextView tv_admin;
 
@@ -58,13 +57,13 @@ public class CardViewEventActivity extends ActionBarActivity {
         tv_name = (TextView) findViewById(R.id.tv_name);
         tv_about = (TextView) findViewById(R.id.tv_about);
         tv_date = (TextView) findViewById(R.id.tv_date);
-        //tv_clock = (TextView) findViewById(R.id.tv_clock);
         tv_place = (TextView) findViewById(R.id.tv_place);
         tv_admin = (TextView) findViewById(R.id.tv_admin);
 
         imageCity = (ImageView) findViewById(R.id.iv_city);
-        //icon_clock = (ImageView) findViewById(R.id.icon_clock);
-        //icon_clock.setImageResource(R.drawable.ic_access_time_black_24dp);
+        imageCity.setImageResource(R.drawable.img_nch_01);
+        icon_clock = (ImageView) findViewById(R.id.icon_clock);
+        icon_clock.setImageResource(R.drawable.ic_access_time_black_24dp);
         icon_place = (ImageView) findViewById(R.id.icon_place);
         icon_place.setImageResource(R.drawable.ic_place_black_24dp);
         icon_admin = (ImageView) findViewById(R.id.icon_admin);
@@ -76,22 +75,12 @@ public class CardViewEventActivity extends ActionBarActivity {
         String text2 = i1.getStringExtra("sAbout");
         String text3 = i1.getStringExtra("sDate");
         String text4 = i1.getStringExtra("sAddress");
-        byte[] byteArray = getIntent().getByteArrayExtra("sImage");
         link = i1.getStringExtra("sLink");
         String text5 = i1.getStringExtra("sOrganisator");
 
-        try {
-           bmp  = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-
         tv_name.setText(text1);
         tv_about.setText(text2);
-        //tv_clock.setText(text3);
         tv_date.setText(text3);
-        imageCity.setImageBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.img_nch_03));
         tv_place.setText(text4);
         tv_admin.setText(text5);
 

@@ -48,6 +48,7 @@
 
     <dimen name="ll_org_height">48dp</dimen>
     <dimen name="ll_org_margin_top">8dp</dimen>
+    <dimen name="ll_org_margin_bottom">16dp</dimen>
     <dimen name="iv_org_padding_left">16dp</dimen>
     <dimen name="tv_org_padding">8dp</dimen>
     <dimen name="tv_org_padding_left">16dp</dimen>
