@@ -46,7 +46,7 @@
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="272dp">
+                        android:layout_height="match_parent">
                         <!-- Картинка города -->
                         <ImageView
                             android:id="@+id/iv_city"

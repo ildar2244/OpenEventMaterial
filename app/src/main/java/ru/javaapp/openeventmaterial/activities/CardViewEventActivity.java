@@ -91,7 +91,7 @@ public class CardViewEventActivity extends ActionBarActivity {
         tv_about.setText(text2);
         //tv_clock.setText(text3);
         tv_date.setText(text3);
-        //imageCity.setImageBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.img_nch_01));
+        imageCity.setImageBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.img_nch_01));
         tv_place.setText(text4);
         tv_admin.setText(text5);
 
