@@ -63,8 +63,8 @@ public class CardViewEventActivity extends ActionBarActivity {
         tv_admin = (TextView) findViewById(R.id.tv_admin);
 
         imageCity = (ImageView) findViewById(R.id.iv_city);
-        //icon_clock = (ImageView) findViewById(R.id.icon_clock);
-        //icon_clock.setImageResource(R.drawable.ic_access_time_black_24dp);
+        icon_clock = (ImageView) findViewById(R.id.icon_clock);
+        icon_clock.setImageResource(R.drawable.ic_access_time_black_24dp);
         icon_place = (ImageView) findViewById(R.id.icon_place);
         icon_place.setImageResource(R.drawable.ic_place_black_24dp);
         icon_admin = (ImageView) findViewById(R.id.icon_admin);
