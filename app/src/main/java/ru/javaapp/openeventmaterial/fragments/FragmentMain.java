@@ -86,6 +86,7 @@ public class FragmentMain extends Fragment {
         View layout = inflater.inflate(R.layout.fragment_fragment_main, container, false);
         rv = (RecyclerView) layout.findViewById(R.id.rv_events);
         rv.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
+        setRetainInstance(true);
 
         Log.d("My", "Call JsonReadData ");
         new JsonReadDataFromMySql().execute();
