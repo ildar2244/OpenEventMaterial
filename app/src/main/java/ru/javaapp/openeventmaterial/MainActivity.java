@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
@@ -31,13 +32,16 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.d("My", "Finish MainActivity -> setContentView)");
 
         // Устанавливаем Toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        Log.d("My", "Finish MainActivity -> setToolbar)");
 
         setCity(); // Выбираем город
+        Log.d("My", "Finish MainActivity ->setCity()");
 
         // Создаем и устанавливаем фрагмент панели навигации NavigationDrawer
         drawerFragment = (FragmentDrawer)
@@ -45,6 +49,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
         drawerFragment.setDrawerListener(this);
 
+        Log.d("My", "Finish MainActivity -> OnCreate()");
     }
 
     @Override
@@ -96,6 +101,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss(); // Отпускает диалоговое окно
+                Log.d("My", "Call category All Events ");
                 displayView(0);
                 getSupportActionBar().setSubtitle(cityName);
             }
@@ -124,12 +130,14 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         String category = getString(R.string.app_name);
         switch (position) {
             case 0:
+                Log.d("My", "Touch Drawer Category: " + position);
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(-1);
                 category = getResources().getStringArray(R.array.nav_rv)[position];
                 break;
             case 1:
+                Log.d("My", "Category: " + position);
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
@@ -142,60 +150,70 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
                 category = getResources().getStringArray(R.array.nav_rv)[position];
                 break;
             case 3:
+                Log.d("My", "Category: " + position);
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
                 category = getResources().getStringArray(R.array.nav_rv)[position];
                 break;
             case 4:
+                Log.d("My", "Category: " + position);
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
                 category = getResources().getStringArray(R.array.nav_rv)[position];
                 break;
             case 5:
+                Log.d("My", "Category: " + position);
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
                 category = getResources().getStringArray(R.array.nav_rv)[position];
                 break;
             case 6:
+                Log.d("My", "Category: " + position);
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
                 category = getResources().getStringArray(R.array.nav_rv)[position];
                 break;
             case 7:
+                Log.d("My", "Category: " + position);
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
                 category = getResources().getStringArray(R.array.nav_rv)[position];
                 break;
             case 8:
+                Log.d("My", "Category: " + position);
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
                 category = getResources().getStringArray(R.array.nav_rv)[position];
                 break;
             case 9:
+                Log.d("My", "Category: " + position);
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
                 category = getResources().getStringArray(R.array.nav_rv)[position];
                 break;
             case 10:
+                Log.d("My", "Category: " + position);
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
                 category = getResources().getStringArray(R.array.nav_rv)[position];
                 break;
             case 11:
+                Log.d("My", "Category: " + position);
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
                 category = getResources().getStringArray(R.array.nav_rv)[position];
                 break;
             case 12:
+                Log.d("My", "Category: " + position);
                 fragment = new FragmentMain();
                 fragment.setCityId(cityId);
                 fragment.setPositionCategory(position);
@@ -213,6 +231,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
 
     @Override
     public void onBackPressed() {
+        Log.d("My", "OnBackPressed");
         openQuitDialog();
     }
 

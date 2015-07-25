@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -61,7 +62,7 @@ public class CardViewEventActivity extends ActionBarActivity {
         tv_place = (TextView) findViewById(R.id.tv_place);
         tv_admin = (TextView) findViewById(R.id.tv_admin);
 
-        imageEvent = (ImageView) findViewById(R.id.iv_event);
+        //imageEvent = (ImageView) findViewById(R.id.iv_event);
         icon_clock = (ImageView) findViewById(R.id.icon_clock);
         icon_clock.setImageResource(R.drawable.ic_access_time_black_24dp);
         icon_place = (ImageView) findViewById(R.id.icon_place);
@@ -90,7 +91,7 @@ public class CardViewEventActivity extends ActionBarActivity {
         tv_about.setText(text2);
         tv_clock.setText(text3);
         tv_date.setText(text3);
-        imageEvent.setImageBitmap(bmp);
+        //imageEvent.setImageBitmap(bmp);
         tv_place.setText(text4);
         tv_admin.setText(text5);
 
@@ -112,6 +113,7 @@ public class CardViewEventActivity extends ActionBarActivity {
 
     @Override
     public void onBackPressed() {
+        Log.d("My", "On Back Pressed");
         super.onBackPressed();
         finish();
     }

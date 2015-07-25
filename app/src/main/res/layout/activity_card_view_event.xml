@@ -11,7 +11,6 @@
         android:id="@+id/container_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <!-- устанавливаем Toolbar в EventActivity-->
         <include
             android:id="@+id/toolbar"
@@ -25,167 +24,188 @@
         android:layout_marginTop="8dp"
         android:background="@color/white">
 
-        <!-- Вьюха для скроллинга общего лейаута -->
-        <ScrollView
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view"
+            android:layout_gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            card_view:cardCornerRadius="20dp"
+            card_view:cardElevation="10dp"
+            card_view:cardBackgroundColor="@color/colorPrimaryLight">
 
-            <LinearLayout
-                android:orientation="vertical"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
-                <!-- Заголовок -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tv_name"
-                    android:fontFamily="sans-serif-medium"
-                    android:textSize="24sp"
-                    android:textColor="@color/colorTextPrimary"
-                    android:paddingTop="@dimen/tv_name_padding_top"
-                    android:padding="@dimen/tv_name_padding_left"
-                    android:gravity="center" />
-
-                <!-- Картинка, Дата -->
                 <LinearLayout
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/item_height">
+                    android:layout_height="match_parent">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/iv_date_padding_left"
-                        android:id="@+id/iv_event"
-                        android:layout_weight="0.3"
-                        android:layout_gravity="center_vertical" />
-
+                    <!-- Заголовок -->
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/tv_date"
-                        android:padding="@dimen/tv_date_padding"
+                        android:id="@+id/tv_name"
                         android:fontFamily="sans-serif-medium"
-                        android:textSize="16sp"
-                        android:textColor="@color/colorTextSecondary"
-                        android:gravity="center_vertical|fill_horizontal"
-                        android:layout_weight="0.7"
-                        android:layout_gravity="center_vertical" />
+                        android:textSize="24sp"
+                        android:textColor="@color/colorTextPrimary"
+                        android:paddingTop="@dimen/tv_name_padding_top"
+                        android:padding="@dimen/tv_name_padding_left"
+                        android:gravity="center" />
 
-                </LinearLayout>
+                    <!-- Картинка, Дата -->
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/item_height">
 
-                <!-- Описание события подробнее -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tv_about"
-                    android:padding="@dimen/tv_about_padding"
-                    android:fontFamily="sans-serif"
-                    android:textSize="20sp"
-                    android:textColor="@color/colorTextSecondary"
-                    android:gravity="fill" />
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/btn_height"
+                            android:layout_marginTop="@dimen/margin"
+                            android:layout_marginBottom="24dp"
+                            android:id="@+id/btn_ticket"
+                            android:text="@string/btn_link"
+                            android:fontFamily="sans-serif-medium"
+                            android:textSize="14sp"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            android:layout_gravity="center_horizontal"
+                            android:textColor="@color/white"
+                            android:background="@color/colorAccent"
+                            android:enabled="true"/>
 
-                <!-- Поле даты и времени -->
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/ll_clock_margin_top">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_date"
+                            android:padding="@dimen/tv_date_padding"
+                            android:fontFamily="sans-serif-medium"
+                            android:textSize="16sp"
+                            android:textColor="@color/colorTextSecondary"
+                            android:gravity="center_vertical|fill_horizontal"
+                            android:layout_weight="0.7"
+                            android:layout_gravity="center_vertical" />
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/iv_clock_padding_left"
-                        android:id="@+id/icon_clock"
-                        android:layout_gravity="center_vertical" />
+                    </LinearLayout>
+
+                    <!-- Описание события подробнее -->
                     <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_about"
+                        android:padding="@dimen/tv_about_padding"
+                        android:fontFamily="sans-serif"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorTextSecondary"
+                        android:gravity="fill" />
+
+                    <!-- Поле даты и времени -->
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/ll_clock_margin_top">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/iv_clock_padding_left"
+                            android:id="@+id/icon_clock"
+                            android:layout_gravity="center_vertical" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_clock"
+                            android:paddingTop="@dimen/tv_clock_padding"
+                            android:paddingBottom="@dimen/tv_clock_padding"
+                            android:paddingLeft="@dimen/tv_clock_padding_left"
+                            android:paddingRight="@dimen/tv_clock_padding_right"
+                            android:fontFamily="sans-serif-medium"
+                            android:textSize="14sp"
+                            android:textColor="@color/colorTextSecondary"
+                            android:layout_gravity="center_vertical" />
+                    </LinearLayout>
+
+                    <!-- Поле города и адреса -->
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/ll_address_margin_top">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/iv_address_padding_left"
+                            android:id="@+id/icon_place"
+                            android:layout_gravity="center_vertical" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_place"
+                            android:paddingTop="@dimen/tv_address_padding"
+                            android:paddingBottom="@dimen/tv_address_padding"
+                            android:paddingLeft="@dimen/tv_address_padding_left"
+                            android:paddingRight="@dimen/tv_address_padding_right"
+                            android:fontFamily="sans-serif-medium"
+                            android:textSize="14sp"
+                            android:textColor="@color/colorTextSecondary"
+                            android:layout_gravity="center_vertical" />
+                    </LinearLayout>
+
+                    <!-- Поле организатора -->
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/ll_org_margin_top">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/iv_org_padding_left"
+                            android:id="@+id/icon_admin"
+                            android:layout_gravity="center_vertical" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_admin"
+                            android:paddingTop="@dimen/tv_org_padding"
+                            android:paddingBottom="@dimen/tv_org_padding"
+                            android:paddingLeft="@dimen/tv_org_padding_left"
+                            android:paddingRight="@dimen/tv_org_padding_right"
+                            android:fontFamily="sans-serif-medium"
+                            android:textSize="14sp"
+                            android:textColor="@color/colorTextSecondary"
+                            android:layout_gravity="center_vertical" />
+                    </LinearLayout>
+
+                    <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/tv_clock"
-                        android:paddingTop="@dimen/tv_clock_padding"
-                        android:paddingBottom="@dimen/tv_clock_padding"
-                        android:paddingLeft="@dimen/tv_clock_padding_left"
-                        android:paddingRight="@dimen/tv_clock_padding_right"
+                        android:minHeight="@dimen/btn_height"
+                        android:layout_marginTop="@dimen/margin"
+                        android:layout_marginBottom="24dp"
+                        android:id="@+id/btn_ticket"
+                        android:text="@string/btn_link"
                         android:fontFamily="sans-serif-medium"
                         android:textSize="14sp"
-                        android:textColor="@color/colorTextSecondary"
-                        android:layout_gravity="center_vertical" />
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="@color/white"
+                        android:background="@color/colorAccent"
+                        android:enabled="true"/>
+
                 </LinearLayout>
+            </ScrollView>
+        </android.support.v7.widget.CardView>
 
-                <!-- Поле города и адреса -->
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/ll_address_margin_top">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/iv_address_padding_left"
-                        android:id="@+id/icon_place"
-                        android:layout_gravity="center_vertical" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tv_place"
-                        android:paddingTop="@dimen/tv_address_padding"
-                        android:paddingBottom="@dimen/tv_address_padding"
-                        android:paddingLeft="@dimen/tv_address_padding_left"
-                        android:paddingRight="@dimen/tv_address_padding_right"
-                        android:fontFamily="sans-serif-medium"
-                        android:textSize="14sp"
-                        android:textColor="@color/colorTextSecondary"
-                        android:layout_gravity="center_vertical" />
-                </LinearLayout>
-
-                <!-- Поле организатора -->
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/ll_org_margin_top">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/iv_org_padding_left"
-                        android:id="@+id/icon_admin"
-                        android:layout_gravity="center_vertical" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tv_admin"
-                        android:paddingTop="@dimen/tv_org_padding"
-                        android:paddingBottom="@dimen/tv_org_padding"
-                        android:paddingLeft="@dimen/tv_org_padding_left"
-                        android:paddingRight="@dimen/tv_org_padding_right"
-                        android:fontFamily="sans-serif-medium"
-                        android:textSize="14sp"
-                        android:textColor="@color/colorTextSecondary"
-                        android:layout_gravity="center_vertical" />
-                </LinearLayout>
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:minHeight="@dimen/btn_height"
-                    android:layout_marginTop="@dimen/margin"
-                    android:layout_marginBottom="24dp"
-                    android:id="@+id/btn_ticket"
-                    android:text="@string/btn_link"
-                    android:fontFamily="sans-serif-medium"
-                    android:textSize="14sp"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/white"
-                    android:background="@color/colorAccent"
-                    android:enabled="true"/>
-
-            </LinearLayout>
-        </ScrollView>
+        <!-- Вьюха для скроллинга общего лейаута -->
 
     </LinearLayout>
 

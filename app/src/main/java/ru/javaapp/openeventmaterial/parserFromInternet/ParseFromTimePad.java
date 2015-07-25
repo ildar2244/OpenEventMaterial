@@ -15,11 +15,6 @@ import java.util.List;
 
 public class ParseFromTimePad {
     int cityId, positionCategory;
-    List<Bitmap> bitmapList;
-
-    public List<Bitmap> getBitmapList() {
-        return bitmapList;
-    }
 
     public Elements getName() {
         return name;
@@ -39,10 +34,6 @@ public class ParseFromTimePad {
 
     public Elements getDesscr() {
         return desscr;
-    }
-
-    public Elements getImg() {
-        return img;
     }
 
     public Elements getOrganisator() {
@@ -337,8 +328,8 @@ public class ParseFromTimePad {
         if (cityId == 8 && positionCategory == 14) {
             parse("https://my.timepad.ru/naberezhnye-chelny/categories/teatry/events?approved=true&date=&mode=&online=false&paid=true");
         }
+
         // Нижний Новгород и Категории
-        /*
         if (cityId == 9 && positionCategory == 0) {
             parse("https://my.timepad.ru/events?approved=true&date=&mode=&online=false&paid=true");
         }
@@ -372,7 +363,7 @@ public class ParseFromTimePad {
         if (cityId == 9 && positionCategory == 14) {
             parse("https://my.timepad.ru/nizhniy-novgorod/categories/teatry/events?approved=true&date=&mode=&online=false&paid=true");
         }
-        */
+
 
         // Новосибирск и Категории
         if (cityId == 10 && positionCategory == 0) {
@@ -553,10 +544,6 @@ public class ParseFromTimePad {
 
     public void parse(String url) {
         Log.d("My", "Start Parsing: URL: " + url );
-        String imgSrc;
-        bitmapList = new ArrayList<Bitmap>();
-        InputStream inp;
-        Log.d("My", "BitmapList before: " + bitmapList.size());
 
         try {
             Document doc = Jsoup.connect(url).get();
@@ -572,19 +559,7 @@ public class ParseFromTimePad {
             Log.d("My", "Description: " + desscr.size());
             buy = doc.select("h2[class=b-unit__header_size_small b-event__header] > a[href]");
             Log.d("My", "Buy: " + buy.size());
-            img = doc.select("div[class=b-event__pic] > img[src*=https]");
-            Log.d("My", "Img: " + img.size());
 
-            /*
-            if (bitmapList.isEmpty()) {
-                for (int i = 0; i < img.size(); i++) {
-                    imgSrc = img.get(i).attr("src");
-                    inp = new java.net.URL(imgSrc).openStream();
-                    bitmapList.add(BitmapFactory.decodeStream(inp));
-                }
-            }
-            */
-            Log.d("My", "BitmapList after: " + bitmapList.size());
         } catch (IOException e) {
             Log.e("My", "Error: ", e);
             e.printStackTrace();

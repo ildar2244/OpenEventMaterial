@@ -87,6 +87,7 @@ public class FragmentMain extends Fragment {
         rv = (RecyclerView) layout.findViewById(R.id.rv_events);
         rv.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
 
+        Log.d("My", "Call JsonReadData ");
         new JsonReadDataFromMySql().execute();
 
         rv.addOnItemTouchListener(
@@ -100,8 +101,10 @@ public class FragmentMain extends Fragment {
                         String itemName = eventsList.get(position).getName();
                         String itemAbout = eventsList.get(position).getDescription();
                         String itemLink = eventsList.get(position).getCoastLink();
+                        String itemOrganisator = eventsList.get(position).getOrganisator();
                         Bitmap itemImage = null;
-                        byte[] byteArray = null;
+                        //byte[] byteArray = null;
+                        /*
                         if(eventsList.get(position).getImage() == null)
                         {
                             itemImage = null;
@@ -109,7 +112,7 @@ public class FragmentMain extends Fragment {
                         else {
                             itemImage = eventsList.get(position).getImage();
                         }
-                        String itemOrganisator = eventsList.get(position).getOrganisator();
+
 
                         try {
                             ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -119,12 +122,13 @@ public class FragmentMain extends Fragment {
                         catch (Exception e){
                             e.printStackTrace();
                         }
+                        */
 
                         Intent i1 = new Intent(getActivity(), CardViewEventActivity.class);
                         i1.putExtra("sName", itemName);
                         i1.putExtra("sAbout", itemAbout);
                         i1.putExtra("sDate", itemDate);
-                        i1.putExtra("sImage", byteArray);
+                        //i1.putExtra("sImage", byteArray);
                         i1.putExtra("sLink", itemLink);
                         i1.putExtra("sOrganisator", itemOrganisator);
                         i1.putExtra("sAddress", itemAddress);
@@ -134,6 +138,11 @@ public class FragmentMain extends Fragment {
         );
 
         return layout;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
     }
 
     // Метод проверки подключения интернета
@@ -194,6 +203,7 @@ public class FragmentMain extends Fragment {
 
             if(isConnected(getActivity())) {
                 try {
+
                     HttpParams httpParams = new BasicHttpParams();
                     HttpConnectionParams.setConnectionTimeout(httpParams, CONN_WAIT_TIME);
                     HttpConnectionParams.setSoTimeout(httpParams, CONN_DATA_WAIT_TIME);
@@ -206,6 +216,7 @@ public class FragmentMain extends Fragment {
                     HttpResponse response = httpclient.execute(httppost);
                     jsonResult = inputStreamToString(
                             response.getEntity().getContent()).toString();
+                    Log.d("My", "Sent data to MySQL witn JSon");
                 } catch (ClientProtocolException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
@@ -271,6 +282,7 @@ public class FragmentMain extends Fragment {
             eventsList = new ArrayList<Events>();
             jsonResponse = new JSONObject(jsonResult);
             jsonMainNode = jsonResponse.optJSONArray("allEvents_info_by_category_and_city");
+            Log.d("My", "JSon result: " + jsonResult.length());
 
             for (int i = 0; i < jsonMainNode.length(); i++) {
                 event = new Events();
@@ -294,22 +306,23 @@ public class FragmentMain extends Fragment {
         }
 
         try {
-            Log.d("My", "Start Set parse data ");
-            for (int i = 0; i < parseFromTimePad.getName().size(); i++) {
-                event = new Events();
-                // get the value from href attribute
-                event.setName(parseFromTimePad.getName().get(i).text());
-                event.setDate(parseFromTimePad.getDate().get(i).text());
-                event.setAddress(parseFromTimePad.getAddress().get(i).text());
-                event.setDescription(parseFromTimePad.getDesscr().get(i).text());
-                event.setCoastLink(parseFromTimePad.getBuy().get(i).attr("href"));
-                event.setImage(parseFromTimePad.getBitmapList().get(i));
-                event.setOrganisator(parseFromTimePad.getOrganisator().get(i).text());
-                eventsList.add(event); // Добавляем объект event в список
+            if(parseFromTimePad.getName() == null){
+                return;
             }
-            Log.d("My", "Finish Set parse data ");
-            parseFromTimePad.getBitmapList().clear();
-            Log.d("My", "BitmapList clear ");
+            else {
+                Log.d("My", "Start Set parse data ");
+                for (int i = 0; i < parseFromTimePad.getName().size(); i++) {
+                    event = new Events();
+                    // get the value from href attribute
+                    event.setName(parseFromTimePad.getName().get(i).text());
+                    event.setDate(parseFromTimePad.getDate().get(i).text());
+                    event.setAddress(parseFromTimePad.getAddress().get(i).text());
+                    event.setDescription(parseFromTimePad.getDesscr().get(i).text());
+                    event.setCoastLink(parseFromTimePad.getBuy().get(i).attr("href"));
+                    event.setOrganisator(parseFromTimePad.getOrganisator().get(i).text());
+                    eventsList.add(event); // Добавляем объект event в список
+                }
+            }
         }
         catch (Exception ee){
             Log.e("My", "Error Start Set parse data ", ee);
