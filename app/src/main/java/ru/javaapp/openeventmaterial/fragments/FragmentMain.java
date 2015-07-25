@@ -103,33 +103,11 @@ public class FragmentMain extends Fragment {
                         String itemAbout = eventsList.get(position).getDescription();
                         String itemLink = eventsList.get(position).getCoastLink();
                         String itemOrganisator = eventsList.get(position).getOrganisator();
-                        Bitmap itemImage = null;
-                        //byte[] byteArray = null;
-                        /*
-                        if(eventsList.get(position).getImage() == null)
-                        {
-                            itemImage = null;
-                        }
-                        else {
-                            itemImage = eventsList.get(position).getImage();
-                        }
-
-
-                        try {
-                            ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                            itemImage.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                            byteArray = stream.toByteArray();
-                        }
-                        catch (Exception e){
-                            e.printStackTrace();
-                        }
-                        */
 
                         Intent i1 = new Intent(getActivity(), CardViewEventActivity.class);
                         i1.putExtra("sName", itemName);
                         i1.putExtra("sAbout", itemAbout);
                         i1.putExtra("sDate", itemDate);
-                        //i1.putExtra("sImage", byteArray);
                         i1.putExtra("sLink", itemLink);
                         i1.putExtra("sOrganisator", itemOrganisator);
                         i1.putExtra("sAddress", itemAddress);
@@ -296,7 +274,6 @@ public class FragmentMain extends Fragment {
                 event.setDate(jsonChildNode.optString("time"));
                 event.setDescription(jsonChildNode.optString("description"));
                 event.setAddress(jsonChildNode.optString("address"));
-                event.setImage(BitmapFactory.decodeResource(getResources(), R.drawable.ic_bitmap));
                 //event.setCoastId(Integer.parseInt(jsonChildNode.optString("coast")));
                 //event.setBlocked(Integer.parseInt(jsonChildNode.optString("blocked")));
 

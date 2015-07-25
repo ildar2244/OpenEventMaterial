@@ -21,6 +21,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
         android:background="@color/white">
 
         <!-- Вьюха для скроллинга карточек -->
@@ -37,14 +39,14 @@
                     xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/cv_title"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     card_view:cardElevation="2dp"
                     card_view:cardBackgroundColor="@color/white">
 
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="272dp">
                         <!-- Картинка города -->
                         <ImageView
                             android:id="@+id/iv_city"
@@ -57,21 +59,34 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/tv_name"
                             android:fontFamily="sans-serif"
-                            android:textSize="24sp"
+                            android:textSize="20sp"
                             android:textColor="@color/colorTextPrimary"
                             android:paddingTop="@dimen/tv_name_padding_top"
                             android:padding="@dimen/tv_name_padding_left"
                             android:gravity="center_vertical|left" />
-                        <!-- Дата -->
-                        <TextView
+                        <!-- Поле дата и время -->
+                        <LinearLayout
+                            android:orientation="horizontal"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/tv_date"
-                            android:paddingLeft="@dimen/tv_date_padding_left"
-                            android:fontFamily="sans-serif"
-                            android:textSize="14sp"
-                            android:textColor="@color/colorTextSecondary"
-                            android:gravity="center_vertical|left" />
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="@dimen/iv_address_padding_left"
+                                android:id="@+id/icon_clock"
+                                android:layout_gravity="center_vertical" />
+                            <!-- Дата -->
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:id="@+id/tv_date"
+                                android:paddingLeft="@dimen/tv_date_padding_left"
+                                android:fontFamily="sans-serif"
+                                android:textSize="14sp"
+                                android:textColor="@color/colorTextSecondary"
+                                android:gravity="center_vertical|left" />
+                        </LinearLayout>
                         <!-- Кнопка покупки билета - переход в браузер -->
                         <Button
                             android:layout_width="wrap_content"
@@ -90,33 +105,36 @@
 
                 <android.support.v7.widget.CardView
                     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/cv_adv"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/cv_adv_height"
-                    card_view:cardElevation="2dp"
-                    card_view:cardBackgroundColor="@color/white">
-
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/cv_about"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/cv_title_height"
+                    android:layout_height="wrap_content"
                     card_view:cardElevation="2dp"
                     card_view:cardBackgroundColor="@color/white">
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
+                        <!-- Шапка -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="8dp"
+                            android:paddingLeft="@dimen/tv_about_padding"
+                            android:text="@string/cv_about"
+                            android:fontFamily="sans-serif"
+                            android:textSize="16sp"
+                            android:textColor="@color/colorTextPrimary"
+                            android:gravity="center_vertical|left" />
                         <!-- Описание события подробнее -->
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/tv_about"
-                            android:padding="@dimen/tv_about_padding"
+                            android:paddingTop="8dp"
+                            android:paddingLeft="@dimen/tv_about_padding"
+                            android:paddingRight="@dimen/tv_about_padding"
                             android:fontFamily="sans-serif"
-                            android:textSize="20sp"
+                            android:textSize="16sp"
                             android:textColor="@color/colorTextSecondary"
                             android:gravity="fill" />
                         <!-- Поле города и адреса -->
@@ -135,21 +153,21 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/tv_place"
-                                android:paddingTop="@dimen/tv_address_padding"
-                                android:paddingBottom="@dimen/tv_address_padding"
                                 android:paddingLeft="@dimen/tv_address_padding_left"
                                 android:paddingRight="@dimen/tv_address_padding_right"
                                 android:fontFamily="sans-serif-medium"
                                 android:textSize="14sp"
                                 android:textColor="@color/colorTextSecondary"
-                                android:layout_gravity="center_vertical" />
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center_vertical|left" />
                         </LinearLayout>
                         <!-- Поле организатора -->
                         <LinearLayout
                             android:orientation="horizontal"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/ll_org_margin_top">
+                            android:layout_marginTop="@dimen/ll_org_margin_top"
+                            android:layout_marginBottom="16dp">
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -160,14 +178,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/tv_admin"
-                                android:paddingTop="@dimen/tv_org_padding"
-                                android:paddingBottom="@dimen/tv_org_padding"
                                 android:paddingLeft="@dimen/tv_org_padding_left"
                                 android:paddingRight="@dimen/tv_org_padding_right"
                                 android:fontFamily="sans-serif-medium"
                                 android:textSize="14sp"
                                 android:textColor="@color/colorTextSecondary"
-                                android:layout_gravity="center_vertical" />
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center_vertical|left" />
                         </LinearLayout>
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
