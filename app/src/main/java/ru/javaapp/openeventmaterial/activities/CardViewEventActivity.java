@@ -62,7 +62,15 @@ public class CardViewEventActivity extends ActionBarActivity {
         tv_place = (TextView) findViewById(R.id.tv_place);
         tv_admin = (TextView) findViewById(R.id.tv_admin);
 
+        //Массив с картинками для фона
+        int[] imgCity = new int[] {R.drawable.img_01, R.drawable.img_02, R.drawable.img_03,
+                R.drawable.img_04, R.drawable.img_05, R.drawable.img_06, R.drawable.img_07,
+                R.drawable.img_08, R.drawable.img_09, R.drawable.img_10, R.drawable.img_11,
+                R.drawable.img_12, R.drawable.img_13};
+        int imgCityId = (int)(Math.random() * imgCity.length);
+
         imageCity = (ImageView) findViewById(R.id.iv_city);
+        imageCity.setBackgroundResource(imgCity[imgCityId]);
         icon_clock = (ImageView) findViewById(R.id.icon_clock);
         icon_clock.setImageResource(R.drawable.ic_access_time_black_24dp);
         icon_place = (ImageView) findViewById(R.id.icon_place);
@@ -91,7 +99,6 @@ public class CardViewEventActivity extends ActionBarActivity {
         tv_about.setText(text2);
         //tv_clock.setText(text3);
         tv_date.setText(text3);
-        imageCity.setImageBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.img_nch_01));
         tv_place.setText(text4);
         tv_admin.setText(text5);
 

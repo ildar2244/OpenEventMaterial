@@ -49,6 +49,7 @@
                 <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/spn_height"
+                    android:layout_marginLeft="@dimen/ll_spn_margin_right"
                     android:layout_marginRight="@dimen/ll_spn_margin_right"
                     android:id="@+id/spinner"
                     android:layout_weight="1"
@@ -57,6 +58,7 @@
                 <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/spn_height"
+                    android:layout_marginLeft="@dimen/ll_spn_margin_right"
                     android:layout_marginRight="@dimen/ll_spn_margin_right"
                     android:id="@+id/spinner2"
                     android:layout_weight="1"

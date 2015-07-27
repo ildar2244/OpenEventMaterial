@@ -26,7 +26,7 @@
     </string-array>
 
     <!-- Activity -->
-    <string name="title_activity_event">Подробно</string>
+    <string name="title_activity_event">Подробно о мероприятии</string>
     <string name="title_activity_add_events">Добавить событие</string>
 
     <!-- Toolbar -->

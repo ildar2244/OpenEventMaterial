@@ -234,7 +234,7 @@ public class AddEventsActivity extends ActionBarActivity {
     //РњРµС‚РѕРґ РґР»СЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ СЃРїРёСЃРєР° СЃ РіРѕСЂРѕРґР°РјРё РІ Р°РґР°РїС‚РµСЂ
     private ArrayAdapter fillCitySpinner(){
         String[] cities = getResources().getStringArray(R.array.cities);
-        cityAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_single_choice, cities);
+        cityAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, cities);
         cityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         return cityAdapter;
     }
@@ -246,7 +246,7 @@ public class AddEventsActivity extends ActionBarActivity {
             category[i-1] = getResources().getStringArray(R.array.nav_rv)[i];
         }
         //String[] category = getResources().getStringArray(R.array.nav_rv);
-        categoryAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_single_choice, category);
+        categoryAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, category);
         categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         return categoryAdapter;
     }
