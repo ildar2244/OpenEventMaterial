@@ -1,4 +1,4 @@
-package ru.javaapp.openeventmaterial.adapters;
+package ru.javaapp.openevent.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -10,8 +10,8 @@ import android.widget.TextView;
 import java.util.Collections;
 import java.util.List;
 
-import ru.javaapp.openeventmaterial.NavDrawerItem;
-import ru.javaapp.openeventmaterial.R;
+import ru.javaapp.openevent.NavDrawerItem;
+import ru.javaapp.openevent.R;
 
 /**
  * Created by User on 17.07.2015.

@@ -1,4 +1,4 @@
-package ru.javaapp.openeventmaterial.adapters;
+package ru.javaapp.openevent.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import ru.javaapp.openeventmaterial.R;
-import ru.javaapp.openeventmaterial.dao.Events;
+import ru.javaapp.openevent.R;
+import ru.javaapp.openevent.dao.Events;
 
 /**
  * Created by User on 17.07.2015.

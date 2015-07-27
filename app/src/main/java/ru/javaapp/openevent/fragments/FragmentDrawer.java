@@ -1,4 +1,4 @@
-package ru.javaapp.openeventmaterial.fragments;
+package ru.javaapp.openevent.fragments;
 
 
 import android.annotation.TargetApi;
@@ -20,10 +20,10 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import ru.javaapp.openeventmaterial.DividerItemDecoration;
-import ru.javaapp.openeventmaterial.NavDrawerItem;
-import ru.javaapp.openeventmaterial.R;
-import ru.javaapp.openeventmaterial.adapters.NavigationDrawerAdapter;
+import ru.javaapp.openevent.DividerItemDecoration;
+import ru.javaapp.openevent.NavDrawerItem;
+import ru.javaapp.openevent.R;
+import ru.javaapp.openevent.adapters.NavigationDrawerAdapter;
 
 /**
  * A simple {@link Fragment} subclass.

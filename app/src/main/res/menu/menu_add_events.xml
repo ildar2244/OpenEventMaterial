@@ -2,6 +2,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="ru.javaapp.openeventmaterial.activities.AddEventsActivity">
+    tools:context="ru.javaapp.openevent.activities.AddEventsActivity">
 
 </menu>

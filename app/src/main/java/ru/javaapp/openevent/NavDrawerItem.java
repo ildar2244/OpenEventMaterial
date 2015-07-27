@@ -1,4 +1,4 @@
-package ru.javaapp.openeventmaterial;
+package ru.javaapp.openevent;
 
 /**
  * Created by User on 17.07.2015.

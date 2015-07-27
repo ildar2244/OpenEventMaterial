@@ -1,4 +1,4 @@
-package ru.javaapp.openeventmaterial.dao;
+package ru.javaapp.openevent.dao;
 
 import android.graphics.Bitmap;
 

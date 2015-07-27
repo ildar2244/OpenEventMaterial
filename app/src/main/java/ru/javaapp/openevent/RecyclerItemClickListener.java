@@ -1,4 +1,4 @@
-package ru.javaapp.openeventmaterial;
+package ru.javaapp.openevent;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

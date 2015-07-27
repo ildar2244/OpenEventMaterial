@@ -1,4 +1,4 @@
-package ru.javaapp.openeventmaterial.dao;
+package ru.javaapp.openevent.dao;
 
 /**
  * Created by User on 17.07.2015.

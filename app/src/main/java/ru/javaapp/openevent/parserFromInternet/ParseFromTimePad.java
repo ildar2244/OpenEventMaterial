@@ -1,7 +1,5 @@
-package ru.javaapp.openeventmaterial.parserFromInternet;
+package ru.javaapp.openevent.parserFromInternet;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.util.Log;
 
 import org.jsoup.Jsoup;
@@ -9,9 +7,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ParseFromTimePad {
     int cityId, positionCategory;

@@ -1,4 +1,4 @@
-package ru.javaapp.openeventmaterial.activities;
+package ru.javaapp.openevent.activities;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -9,13 +9,12 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import ru.javaapp.openeventmaterial.R;
+import ru.javaapp.openevent.R;
 
 public class CardViewEventActivity extends ActionBarActivity {
 

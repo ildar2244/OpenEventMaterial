@@ -1,4 +1,4 @@
-package ru.javaapp.openeventmaterial.fragments;
+package ru.javaapp.openevent.fragments;
 
 
 import android.support.v7.app.AlertDialog;
@@ -6,8 +6,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -37,20 +35,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import ru.javaapp.openeventmaterial.DividerItemDecoration;
-import ru.javaapp.openeventmaterial.R;
-import ru.javaapp.openeventmaterial.RecyclerItemClickListener;
-import ru.javaapp.openeventmaterial.activities.CardViewEventActivity;
-import ru.javaapp.openeventmaterial.adapters.RVAdapter;
-import ru.javaapp.openeventmaterial.dao.Events;
-import ru.javaapp.openeventmaterial.parserFromInternet.ParseFromTimePad;
+import ru.javaapp.openevent.DividerItemDecoration;
+import ru.javaapp.openevent.R;
+import ru.javaapp.openevent.RecyclerItemClickListener;
+import ru.javaapp.openevent.activities.CardViewEventActivity;
+import ru.javaapp.openevent.adapters.RVAdapter;
+import ru.javaapp.openevent.dao.Events;
+import ru.javaapp.openevent.parserFromInternet.ParseFromTimePad;
 
 
 public class FragmentMain extends Fragment {

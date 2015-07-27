@@ -1,4 +1,4 @@
-package ru.javaapp.openeventmaterial.activities;
+package ru.javaapp.openevent.activities;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -41,7 +40,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.UUID;
 
-import ru.javaapp.openeventmaterial.R;
+import ru.javaapp.openevent.R;
 
 public class AddEventsActivity extends ActionBarActivity {
 

@@ -24,7 +24,7 @@
             android:layout_height="match_parent"
             android:id="@+id/fragment_main"
             android:layout="@layout/fragment_fragment_main"
-            android:name="ru.javaapp.openeventmaterial.fragments.FragmentMain"
+            android:name="ru.javaapp.openevent.fragments.FragmentMain"
             tools:layout="@layout/fragment_fragment_main" />
 
     </LinearLayout>
@@ -38,7 +38,7 @@
         android:id="@+id/fragment_navigation_drawer"
         app:layout="@layout/fragment_navigation_drawer"
         app:headerLayout="@layout/nav_drawer_header"
-        android:name="ru.javaapp.openeventmaterial.fragments.FragmentDrawer"
+        android:name="ru.javaapp.openevent.fragments.FragmentDrawer"
         tools:layout="@layout/fragment_navigation_drawer" />
 
 </android.support.v4.widget.DrawerLayout>

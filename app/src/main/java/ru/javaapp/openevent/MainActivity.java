@@ -1,4 +1,4 @@
-package ru.javaapp.openeventmaterial;
+package ru.javaapp.openevent;
 
 import android.support.v7.app.AlertDialog;
 import android.content.DialogInterface;
@@ -16,9 +16,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import ru.javaapp.openeventmaterial.activities.AddEventsActivity;
-import ru.javaapp.openeventmaterial.fragments.FragmentDrawer;
-import ru.javaapp.openeventmaterial.fragments.FragmentMain;
+import ru.javaapp.openevent.activities.AddEventsActivity;
+import ru.javaapp.openevent.fragments.FragmentDrawer;
+import ru.javaapp.openevent.fragments.FragmentMain;
 
 
 public class MainActivity extends ActionBarActivity implements FragmentDrawer.FragmentDrawerListener {

@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ru.javaapp.openeventmaterial.activities.AddEventsActivity"
+    tools:context="ru.javaapp.openevent.activities.AddEventsActivity"
     android:background="@color/white"
     android:fitsSystemWindows="true">
 

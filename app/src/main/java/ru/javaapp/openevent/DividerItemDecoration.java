@@ -1,4 +1,4 @@
-package ru.javaapp.openeventmaterial;
+package ru.javaapp.openevent;
 
 import android.content.Context;
 import android.content.res.TypedArray;

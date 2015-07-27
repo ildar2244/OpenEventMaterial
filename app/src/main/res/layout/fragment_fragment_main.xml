@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="ru.javaapp.openeventmaterial.fragments.FragmentMain"
+    tools:context="ru.javaapp.openevent.fragments.FragmentMain"
     android:background="@color/white">
 
     <!-- Список мероприятий в Main -->
